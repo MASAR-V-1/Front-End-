@@ -6,10 +6,11 @@
   position: relative;
   display: flex;
   align-items: center; /* يضمن توسيط المحتوى عمودياً داخل الشاشة */
-  margin-top: -100px; /* مسافة علوية مساوية لارتفاع الـ Navbar لكي لا تختفي النصوص تحته */
+  /* margin-top: -100px مسافة علوية مساوية لارتفاع الـ Navbar لكي لا تختفي النصوص تحته */
   overflow: hidden; /* يمنع ظهور أي شريط تمرير أفقي بسبب الأشكال الهندسية لاحقاً */
   direction: rtl; /* توجيه العناصر من اليمين إلى اليسار */
 }
+
 .blurBlob1 {
   position: absolute;
   top: -100px;
@@ -36,6 +37,21 @@
   background: radial-gradient(
     circle,
     rgba(14, 164, 233, 0.703) 0%,
+    rgba(14, 165, 233, 0) 70%
+  );
+  filter: blur(90px);
+  z-index: 1;
+  pointer-events: none;
+}
+.blurBlob3 {
+  position: absolute;
+  top: -100px;
+  right: 0px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(14, 168, 119, 0.703) 0%,
     rgba(14, 165, 233, 0) 70%
   );
   filter: blur(90px);
@@ -70,6 +86,7 @@
   width: 100%;
   z-index: 2;
 }
+
 /* 3. الشق الأيمن (النصوص والأزرار) */
 .heroContent {
   flex: 1; /* يأخذ مساحة مرنة ومتساوية */
@@ -78,6 +95,9 @@
   flex-direction: column;
   gap: 24px; /* توحيد المسافات العمودية بين الـ Badge والعناوين والأزرار */
 }
+@media (max-width: 992px) {
+}
+
 .badge {
   align-self: flex-start;
   text-align: right;
@@ -104,7 +124,7 @@
   gap: 10px;
 }
 .title {
-  font-size: 2.8rem; /* حجم عريض ومناسب جداً لعناوين الـ Hero */
+  font-size: 2.5rem; /* حجم عريض ومناسب جداً لعناوين الـ Hero */
   line-height: 1.3; /* يعطي مساحة مريحة بين السطور */
   font-weight: 800;
   color: #0f172a; /* لون كحلي داكن قريب من الأسود لراحة العين */
@@ -149,6 +169,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 992px) {
+  .heroVisual {
+    display: none;
+  }
 }
 .imagePlaceholder {
   width: 100%;
