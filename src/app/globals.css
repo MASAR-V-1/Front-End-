@@ -9,6 +9,9 @@ body {
   background-color: #ffffff;
   color: #333333;
 }
+body {
+  font-family: var(--font-cairo), sans-serif !important;
+}
 
 .container {
   padding-left: 15px;

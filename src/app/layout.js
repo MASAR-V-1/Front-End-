@@ -13,8 +13,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={cairo.className}>
-      <body>{children}</body>
+    <html lang="en">
+      <body className={`${cairo.variable} ${cairo.className}`}>{children}</body>
     </html>
   );
 }
