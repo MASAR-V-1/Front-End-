@@ -1,0 +1,75 @@
+.navbar {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  background-color: transparent; /* شفافة لكي تندمج مع ألوان خلفية الـ Hero لاحقاً */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* box-shadow: 0 0 2px #000; */
+}
+/* الـ Wrapper الداخلي الموزع داخل الـ Container الموحد */
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/* 1. تنسيق منطقة الشعار (أقصى اليمين) */
+.logoContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-self: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: -100;
+}
+
+/* 2. تنسيق روابط التنقل (المنتصف) */
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 35px; /* المسافة بين كل رابط ورابط */
+}
+.navLinks a {
+  text-decoration: none;
+  color: #475569; /* لون رمادي ناعم للنصوص الافتراضية */
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: color 0.2s ease;
+}
+.navLinks a:hover {
+  color: #034843; /* يتحول للأخضر الداكن عند مرور الماوس */
+}
+
+/* تنسيق الرابط النشط (الرئيسية) */
+.activeLink {
+  color: #034843 !important;
+  position: relative;
+}
+/* 3. تنسيق زر التسجيل (أقصى اليسار) */
+.registerBtn {
+  background-color: #026960; /* اللون التركوازي الداكن المميز */
+  color: #ffffff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: Cairo;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.registerBtn:hover {
+  background-color: #014d46;
+  transform: translateY(-1px); /* تأثير حركة خفيفة عند الـ hover */
+}
+@media (max-width: 992px) {
+  .navLinks {
+    display: none;
+  }
+}
