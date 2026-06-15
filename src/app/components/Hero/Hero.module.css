@@ -1,0 +1,499 @@
+/* 1. الحاوية الكبرى للقسم بالكامل */
+.hero {
+  width: 100%;
+  min-height: 100vh; /* يأخذ مساحة الشاشة بالكامل عمودياً */
+  background-color: #fafbfc; /* لون خلفية هادئ وفاتح جداً يبرز التصميم */
+  position: relative;
+  display: flex;
+  align-items: center; /* يضمن توسيط المحتوى عمودياً داخل الشاشة */
+  margin-top: -100px; /* مسافة علوية مساوية لارتفاع الـ Navbar لكي لا تختفي النصوص تحته */
+  overflow: hidden; /* يمنع ظهور أي شريط تمرير أفقي بسبب الأشكال الهندسية لاحقاً */
+  direction: rtl; /* توجيه العناصر من اليمين إلى اليسار */
+}
+.blurBlob1 {
+  position: absolute;
+  top: -100px;
+  left: -50px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(
+    circle,
+    rgba(2, 105, 96, 0.694) 0%,
+    rgba(2, 105, 96, 0) 70%
+  );
+  filter: blur(
+    80px
+  ); /* فلتر البلور العالي لتنعيم الحواف وتحويلها لغيمة لونية */
+  z-index: 1; /* خلف النصوص والصورة */
+  pointer-events: none; /* لمنع القرص من حجب الضغطات عن الأزرار */
+}
+.blurBlob2 {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(14, 164, 233, 0.703) 0%,
+    rgba(14, 165, 233, 0) 70%
+  );
+  filter: blur(90px);
+  z-index: 1;
+  pointer-events: none;
+}
+.blurBlobCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* يضمن التوسيط الهندسي الدقيق في السنتر */
+  width: 850px;
+  height: 850px;
+  /* تدرج شعاعي ناعم بلون زمردي خفيف جداً ليحدث دمجاً ساحراً بين التركوازي والأزرق */
+  background: radial-gradient(
+    circle,
+    rgba(119, 55, 197, 0.329) 0%,
+    rgba(4, 120, 87, 0) 70%
+  );
+  filter: blur(
+    100px
+  ); /* بلور أعلى بقليل لزيادة مدى انتشار الغيمة اللونية في المنتصف */
+  z-index: 1;
+  pointer-events: none;
+}
+/* 2. الـ Wrapper المسؤول عن توزيع الشقين الأيمن والأيسر */
+.heroWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px; /* مسافة أمان ثابتة بين النصوص والصورة */
+  width: 100%;
+  z-index: 2;
+}
+/* 3. الشق الأيمن (النصوص والأزرار) */
+.heroContent {
+  flex: 1; /* يأخذ مساحة مرنة ومتساوية */
+  max-width: 600px; /* يمنع سياق النصوص من التمدد بشكل عريض ومزعج للعين */
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* توحيد المسافات العمودية بين الـ Badge والعناوين والأزرار */
+}
+.badge {
+  align-self: flex-start;
+  text-align: right;
+  background-color: #e8ebfe; /* لون تركوازي شفاف وناعم جداً */
+  color: #636676; /* اللون التركوازي الأساسي لمسار */
+  padding: 6px 16px;
+  border-radius: 50px; /* يعطيه شكلاً بيضاوياً دائرياً بالكامل */
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.bdg {
+  display: flex;
+  align-items: center;
+}
+.bdg p {
+  margin-left: 30px;
+  font-size: 16px;
+}
+.rgbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.title {
+  font-size: 2.8rem; /* حجم عريض ومناسب جداً لعناوين الـ Hero */
+  line-height: 1.3; /* يعطي مساحة مريحة بين السطور */
+  font-weight: 800;
+  color: #0f172a; /* لون كحلي داكن قريب من الأسود لراحة العين */
+}
+.title span {
+  color: #026960;
+  position: relative;
+}
+.description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #475569; /* لون رمادي احترافي غير فاقع */
+  font-weight: 500;
+}
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* مسافة أمان ثابتة بين الزرين */
+  margin-top: 8px;
+}
+.primaryBtn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #026960;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(2, 105, 96, 0.2); /* ظلال ناعمة بلون الزر تعطي فخامة */
+}
+.primaryBtn:hover {
+  background-color: #014d46;
+  transform: translateY(-2px); /* تأثير ارتفاع طفيف جداً عند التمرير */
+  box-shadow: 0 6px 20px rgba(2, 105, 96, 0.3);
+}
+/* 4. الشق الأيسر (لوحة التحكم والعنصر البصري) */
+.heroVisual {
+  flex: 1; /* يأخذ مساحة مرنة ومتساوية مع الشق الأيمن */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imagePlaceholder {
+  width: 100%;
+  max-width: 550px;
+  height: 400px;
+  background-color: #e2e8f0; /* لون رمادي مؤقت */
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #64748b;
+  font-weight: 600;
+  border: 2px dashed #cbd5e1;
+}
+
+/* الحاوية الخارجية للوحة التحكم */
+.mockupDashboard {
+  width: 100%;
+  max-width: 540px;
+  height: 360px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 30px 60px rgba(3, 72, 67, 0.08); /* ظلال ناعمة مستوحاة من لون مسار الداكن */
+  border: 1px solid rgba(3, 72, 67, 0.05);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 1. تنسيق السايد بار (Sidebar) */
+.mockupSidebar {
+  width: 70px;
+  background-color: #f8fafc;
+  border-left: 1px solid #edf2f7; /* لأن الموقع عربي، الحد الفاصل يكون على اليسار */
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.sidebarCircle {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(2, 105, 96, 0.15);
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.sidebarLineShort,
+.sidebarLineLong {
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+}
+.sidebarLineShort {
+  width: 100%;
+}
+.sidebarLineLong {
+  width: 70%;
+  background-color: #cbd5e1;
+}
+
+/* 2. تنسيق منطقة المحتوى الرئيسية */
+.mockupMain {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* البار العلوي داخل اللوحة */
+.mockupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.headerLine {
+  width: 120px;
+  height: 10px;
+  background-color: #f1f5f9;
+  border-radius: 5px;
+}
+
+.headerAvatar {
+  width: 28px;
+  height: 28px;
+  background-color: #e2e8f0;
+  border-radius: 50%;
+}
+
+/* الكروت الإحصائية */
+.mockupCards {
+  display: flex;
+  gap: 16px;
+}
+
+.mockupCard {
+  flex: 1;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardInfo {
+  width: 60px;
+  height: 8px;
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.cardBar,
+.cardBarSecondary {
+  width: 80%;
+  height: 12px;
+  background-color: #026960; /* لون مسار للتميز */
+  border-radius: 6px;
+}
+.cardBarSecondary {
+  width: 55%;
+  background-color: #034843;
+}
+
+/* منطقة الرسم البياني (المستطيل الكبير) */
+.mockupChart {
+  flex: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 105, 96, 0.04) 0%,
+    rgba(2, 105, 96, 0) 100%
+  );
+  border: 1px dashed rgba(2, 105, 96, 0.2);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+.chartLine {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgba(2, 105, 96, 0.3);
+}
+/* --- تحديثات السايد بار الحية --- */
+.mockupSidebar {
+  width: 90px; /* زدنا العرض قليلاً ليستوعب النصوص الصغيرة */
+  background-color: #f8fafc;
+  border-left: 1px solid #edf2f7;
+  padding: 15px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.sidebarCircle {
+  width: 32px;
+  height: 32px;
+  background-color: #026960;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.sidebarItem,
+.sidebarItemActive {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  width: 100%;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebarItemActive {
+  background-color: rgba(2, 105, 96, 0.08);
+  color: #026960;
+}
+
+/* --- البار العلوي للموك اب --- */
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: right;
+}
+
+.welcomeText {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.dashboardUser {
+  font-size: 0.85rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.headerAvatar {
+  width: 30px;
+  height: 30px;
+  background-color: #e2e8f0;
+  color: #475569;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* --- الكروت الإحصائية المحدثة --- */
+.cardTitle {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 700;
+  text-align: right;
+}
+
+.cardFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.cardNumber {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #034843;
+}
+
+.cardBadge {
+  font-size: 0.6rem;
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* بار التقييم المصغر داخل الكارت */
+.miniProgressBar {
+  width: 50px;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.miniProgressFill {
+  width: 84%;
+  height: 100%;
+  background-color: #026960;
+  border-radius: 3px;
+}
+
+/* --- منطقة الرسم البياني التفاعلية --- */
+.chartHeader {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.chartTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.chartPeriod {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.chartBars {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 10px;
+}
+
+.chartBarCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.chartBarCol span {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* أعمدة بيانية بارتفاعات متفاوتة وحواف دائرية علوية فقط */
+.barFill1,
+.barFill2,
+.barFill3,
+.barFill4,
+.barFill5 {
+  width: 16px;
+  background-color: rgba(2, 105, 96, 0.2);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+}
+.barFill1 {
+  height: 30px;
+}
+.barFill2 {
+  height: 45px;
+}
+.barFill3 {
+  height: 35px;
+}
+.barFill4 {
+  height: 60px;
+  background-color: #026960;
+} /* مميز الأعلي نمواً */
+.barFill5 {
+  height: 50px;
+}

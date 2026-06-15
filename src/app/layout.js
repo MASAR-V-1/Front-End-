@@ -9,6 +9,9 @@ const cairo = Cairo({
 export const metadata = {
   title: "منصة مسار | MASAR",
   description: "مساحة عمل رقمية متكاملة لإدارة العمليات والمؤسسات",
+  icons: {
+    icon: "/src/app/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
