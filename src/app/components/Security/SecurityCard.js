@@ -1,7 +1,7 @@
-import { styles } from "next/dist/client/components/styles/access-error-styles";
+import styles from "./SecurityCard.module.css";
 import React from "react";
 
-const SecurityCard = ({ card: { icon: i, name: n, cont: c } }) => {
+const SecurityCard = ({ content: { icon: i, name: n, cont: c } }) => {
   return (
     <>
       <div className={styles.card}>
@@ -13,4 +13,4 @@ const SecurityCard = ({ card: { icon: i, name: n, cont: c } }) => {
   );
 };
 
-export default Security - card;
+export default SecurityCard;

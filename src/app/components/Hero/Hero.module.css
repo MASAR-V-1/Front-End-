@@ -1,14 +1,13 @@
 /* 1. الحاوية الكبرى للقسم بالكامل */
 .hero {
   width: 100%;
-  min-height: 100vh; /* يأخذ مساحة الشاشة بالكامل عمودياً */
-  background-color: #fafbfc; /* لون خلفية هادئ وفاتح جداً يبرز التصميم */
+  min-height: 100vh;
+  background-color: #fafbfc;
   position: relative;
   display: flex;
-  align-items: center; /* يضمن توسيط المحتوى عمودياً داخل الشاشة */
-  /* margin-top: -100px مسافة علوية مساوية لارتفاع الـ Navbar لكي لا تختفي النصوص تحته */
-  overflow: hidden; /* يمنع ظهور أي شريط تمرير أفقي بسبب الأشكال الهندسية لاحقاً */
-  direction: rtl; /* توجيه العناصر من اليمين إلى اليسار */
+  align-items: center;
+  overflow: hidden;
+  direction: rtl;
 }
 
 .blurBlob1 {
@@ -27,6 +26,7 @@
   ); /* فلتر البلور العالي لتنعيم الحواف وتحويلها لغيمة لونية */
   z-index: 1; /* خلف النصوص والصورة */
   pointer-events: none; /* لمنع القرص من حجب الضغطات عن الأزرار */
+  animation: blobMovement1 20s infinite ease-in-out;
 }
 .blurBlob2 {
   position: absolute;
@@ -42,6 +42,7 @@
   filter: blur(90px);
   z-index: 1;
   pointer-events: none;
+  animation: blobMovement2 25s infinite ease-in-out;
 }
 .blurBlob3 {
   position: absolute;
@@ -76,13 +77,55 @@
   ); /* بلور أعلى بقليل لزيادة مدى انتشار الغيمة اللونية في المنتصف */
   z-index: 1;
   pointer-events: none;
+  animation: blobMovementCenter 18s infinite ease-in-out;
+}
+/* حركة القرص الأول: يتحرك بشكل دائري ناعم ويمتد قليلاً */
+@keyframes blobMovement1 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* حركة القرص الثاني: تتحرك عكس الاتجاه لتحدث تداخلاً لونياً ممتازاً */
+@keyframes blobMovement2 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-50px, 50px) scale(1.15);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* حركة القرص الأوسط: يتمدد وينكمش في مكانه ببطء شديد ليوزع الإضاءة */
+@keyframes blobMovementCenter {
+  0% {
+    transform: translate(-50%, -50%) scale(1); /* الحفاظ على التوسيط الأصلي للـ Center */
+  }
+  50% {
+    transform: translate(-45%, -55%) scale(1.08);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 /* 2. الـ Wrapper المسؤول عن توزيع الشقين الأيمن والأيسر */
 .heroWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 100px; /* مسافة أمان ثابتة بين النصوص والصورة */
+  gap: 200px; /* مسافة أمان ثابتة بين النصوص والصورة */
   width: 100%;
   z-index: 2;
 }
@@ -170,7 +213,7 @@
   justify-content: center;
   align-items: center;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .heroVisual {
     display: none;
   }
