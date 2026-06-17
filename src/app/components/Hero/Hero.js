@@ -10,6 +10,7 @@ const Hero = () => {
       <div className={styles.blurBlob1}></div>
       <div className={styles.blurBlob2}></div>
       <div className={styles.blurBlobCenter}></div>
+      <div className={styles.blurBlob3}></div>
       <div className="container">
         <div className={styles.heroWrapper}>
           <div className={styles.heroContent}>
