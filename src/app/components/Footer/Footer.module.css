@@ -1,0 +1,155 @@
+.footerContainer {
+  margin-top: 150px;
+  background-color: #f4f6fc; /* الخلفية المريحة الفاتحة للفوتر */
+  padding: 60px 40px 24px 40px;
+  direction: rtl;
+  font-family: sans-serif;
+}
+
+.topSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr); /* عمود الشعار أوسع من باقي الأعمدة */
+  gap: 40px;
+}
+
+/* عمود الشعار والوصف */
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.logoText {
+  font-size: 26px;
+  font-weight: 800;
+  color: #034843; /* تركواز مسار */
+}
+
+.logoIcon {
+  width: 12px;
+  height: 12px;
+  background-color: #026960;
+  display: inline-block;
+  position: relative;
+}
+
+/* المربع الصغير الإضافي بجانب اللوجو ليعطي شكل اللوجو بالصورة */
+.logoIcon::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #034843;
+  top: -8px;
+  right: -4px;
+}
+
+.brandDesc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.8;
+  max-width: 320px;
+}
+
+/* أعمدة الروابط والقوائم */
+.linksColumn h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.linksColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linksColumn ul li a {
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 600;
+}
+
+.linksColumn ul li a:hover {
+  color: #026960; /* يضيء بالتركوازي عند التمرير */
+}
+
+/* الخط الفاصل الناعم */
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 40px auto 20px auto;
+  max-width: 1200px;
+}
+
+/* الجزء السفلي */
+.bottomSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.iconLink {
+  color: #64748b;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.iconLink:hover {
+  color: #026960;
+  transform: translateY(-2px);
+}
+
+/* التجاوب مع شاشات الموبايل والتابلت */
+@media (max-width: 768px) {
+  .topSection {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .logoWrapper {
+    justify-content: center;
+  }
+
+  .brandDesc {
+    margin: 0 auto;
+  }
+
+  .bottomSection {
+    flex-direction: column-reverse;
+    gap: 16px;
+    text-align: center;
+  }
+}

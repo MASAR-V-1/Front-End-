@@ -6,6 +6,7 @@ import Security from "./components/Security/Security";
 import RegistrationCompp from "./components/reg/RegistrationCompp";
 import ModulesSection from "./components/ModulesSection/ModulesSection";
 import CompareSection from "./components/Compare/CompareSection";
+import Footer from "./components/Footer/Footer";
 
 const page = () => {
   return (
@@ -16,6 +17,7 @@ const page = () => {
       <Security />
       <RegistrationCompp />
       <CompareSection />
+      <Footer />
     </>
   );
 };
