@@ -1,6 +1,6 @@
 "use client"; // 🌟 يجب أن يكون في السطر الأول تماماً قبل الـ imports
 import { useState } from "react";
-import styles from "./ModulesSection.module.css";
+import styles from "./AdditionalModules.module.css";
 import {
   Boxes,
   Briefcase,
