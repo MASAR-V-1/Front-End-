@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
 import { Globe, Mail, Share2 } from "lucide-react";
+import Logo from "../Navbar/Logo";
 
 export default function Footer() {
   return (
@@ -10,9 +11,8 @@ export default function Footer() {
         {/* العمود 1: شعار ووصف مسار */}
         <div className={styles.brandColumn}>
           <div className={styles.logoWrapper}>
-            {/* يمكنك استبداله بمكون الـ SVG الخاص بشعار مسار المحفوظ عندك */}
             <span className={styles.logoText}>مَسَار</span>
-            <div className={styles.logoIcon}></div>
+            <div className={styles.logoIcon}>{/* <Logo /> */}</div>
           </div>
           <p className={styles.brandDesc}>
             منصة ذكية لتنظيم العمل المؤسسي، إدارة البيانات، متابعة المهام،
@@ -92,7 +92,7 @@ export default function Footer() {
 
         {/* الحقوق جهة اليمين */}
         <div className={styles.copyright}>
-          &copy; 2024 مَسَار. جميع الحقوق محفوظة.
+          &copy; 2026 مَسَار. جميع الحقوق محفوظة.
         </div>
       </div>
     </footer>
