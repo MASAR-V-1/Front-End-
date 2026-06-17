@@ -1,0 +1,103 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  direction: rtl;
+}
+
+.beforeCard,
+.afterCard {
+  border-radius: 20px;
+  padding: 40px;
+}
+
+/* كرت قبل مَسَار */
+.beforeCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* كرت بعد مَسَار (ملون بـ خلفية زرقاء ناعمة جداً) */
+.afterCard {
+  background-color: #eef2ff;
+  border: 1px solid rgba(0, 82, 204, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.activeText {
+  color: #026960; /* اللون الخاص بـ مَسَار */
+}
+
+/* الأيقونات الدائرية بالرأس */
+.xIcon {
+  width: 28px;
+  height: 28px;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon {
+  width: 28px;
+  height: 28px;
+  background-color: #026960;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* تنسيق القوائم المشتركة بالبكسل */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* علامات المقارنة التوضيحية الجانبية سطر بسطر */
+.minusLine {
+  color: #ef4444;
+  font-weight: 900;
+}
+
+.successCheck {
+  color: #026960;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+  }
+}

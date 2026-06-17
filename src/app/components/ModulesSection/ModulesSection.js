@@ -5,7 +5,7 @@ import AdditionalModules from "./AdditionalModules";
 
 export default function ModulesSection() {
   return (
-    <section className={styles.sectionContainer}>
+    <section id="modules" className={styles.sectionContainer}>
       <div className={styles.container}>
         <SectionHeader />
         <CoreModules />
