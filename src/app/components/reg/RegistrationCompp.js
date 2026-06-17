@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../reg/RegistrationComp.module.css";
+import styles from "../reg/RegistrationCompp.module.css";
 import { Rocket, ArrowLeft } from "lucide-react";
 
 const Registration = () => {
