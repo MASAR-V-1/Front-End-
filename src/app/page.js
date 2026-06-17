@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Security from "./components/Security/Security";
-import Registration from "./components/reg/RegistrationComp";
+import RegistrationCompp from "./components/reg/RegistrationCompp";
 
 const page = () => {
   return (
@@ -11,7 +11,7 @@ const page = () => {
       <Navbar />
       <Hero />
       <Security />
-      <Registration />
+      <RegistrationCompp />
     </>
   );
 };
