@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Security from "./components/Security/Security";
 import RegistrationCompp from "./components/reg/RegistrationCompp";
+import ModulesSection from "./components/ModulesSection/ModulesSection";
 
 const page = () => {
   return (
@@ -12,6 +13,7 @@ const page = () => {
       <Hero />
       <Security />
       <RegistrationCompp />
+      <ModulesSection />
     </>
   );
 };

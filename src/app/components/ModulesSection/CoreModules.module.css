@@ -1,0 +1,100 @@
+.container {
+  width: 100%;
+  direction: rtl;
+}
+
+.subHeaderDivider {
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.subHeaderDivider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+  z-index: 1;
+}
+
+.subHeaderDivider span {
+  position: relative;
+  z-index: 2;
+  background-color: #ffffff;
+  padding: 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #026960;
+}
+
+.coreGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.coreCard {
+  background-color: #f0f4ff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  position: relative;
+  text-align: right;
+  border: 1px solid rgba(0, 82, 204, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #034843;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  background-color: #dbeafe;
+  color: #0052cc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.coreCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 8px;
+}
+
+.coreCard p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .coreGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .coreGrid {
+    grid-template-columns: 1fr;
+  }
+}
