@@ -32,8 +32,3 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-@media (max-width: 1200px) {
-  .securityCards {
-    text-align: center;
-  }
-}
