@@ -6,7 +6,7 @@ import { ArrowLeft, Dot, CircleCheck } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <div className={styles.blurBlob1}></div>
       <div className={styles.blurBlob2}></div>
       <div className={styles.blurBlobCenter}></div>

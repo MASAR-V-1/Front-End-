@@ -12,7 +12,7 @@ import SecurityCard from "./SecurityCard";
 
 const Security = () => {
   return (
-    <section className={styles.security}>
+    <section id="security" className={styles.security}>
       <div className={styles.icon}>
         <ShieldCheck />
       </div>

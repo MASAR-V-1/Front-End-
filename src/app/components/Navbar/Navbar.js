@@ -8,10 +8,10 @@ import { useState } from "react";
 
 export default function Navbar() {
   const navItems = [
-    { id: "home", name: "الرئيسية", href: "/" },
+    { id: "#", name: "الرئيسية", href: "/" },
     { id: "security", name: "الأمان", href: "/security" },
     { id: "modules", name: "الوحدات", href: "/modules" },
-    { id: "how-it-works", name: "كيف يعمل", href: "/how-it-works" },
+    { id: "compare", name: "كيف يعمل", href: "/how-it-works" },
     { id: "contact", name: "تواصل معنا", href: "/contact" },
   ];
 
@@ -38,7 +38,8 @@ export default function Navbar() {
               {navItems.map((item) => (
                 <li key={item.id}>
                   <Link
-                    href={item.href}
+                    /* 🌟 جعل الرابط ديناميكي بناءً على الـ id الخاص بكل قسم */
+                    href={`#${item.id}`}
                     className={`${styles.navLink} ${activeTab === item.id ? styles.activeLink : ""}`}
                     onClick={() => {
                       setActiveTab(item.id);

@@ -12,6 +12,9 @@ body {
 body {
   font-family: var(--font-cairo), sans-serif !important;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .container {
   padding-left: 15px;

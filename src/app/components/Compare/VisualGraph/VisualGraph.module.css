@@ -1,0 +1,127 @@
+.graphWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  direction: rtl;
+}
+
+.mainBoard {
+  background-color: #f0f4ff; /* نفس درجة اللوحة الزرقاء الفاتحة بالخلفية */
+  border-radius: 24px;
+  width: 100%;
+  max-width: 950px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* كارت مساحة عمل منظمة */
+.organizedCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(99, 34, 239, 0.08);
+  z-index: 2;
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  background-color: #026960;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px auto;
+}
+
+.organizedCard h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.organizedCard p {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* دائرة السهم بالمنتصف */
+.arrowCircle {
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  color: #026960;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* الأقراص المتشتتة وتوزيعها المطلق بالبكسل لتطابق الصورة */
+.blobsContainer {
+  position: relative;
+  width: 450px;
+  height: 100%;
+}
+
+.blob {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.redBlob {
+  background-color: #fee2e2;
+  color: #ef4444;
+  top: 30px;
+  right: 160px;
+}
+
+.greenBlob {
+  background-color: #d1fae5;
+  color: #059669;
+  top: 50px;
+  right: 20px;
+}
+
+.blueBlob {
+  background-color: #dbeafe;
+  color: #2563eb;
+  top: 110px;
+  right: 120px;
+}
+
+.purpleBlob {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  top: 140px;
+  right: 20px;
+}
+
+.violetBlob {
+  background-color: #ede9fe;
+  color: #7c3aed;
+  bottom: 30px;
+  right: 160px;
+}
