@@ -1,0 +1,27 @@
+.headerContainer {
+  text-align: center;
+  margin-bottom: 40px;
+  direction: rtl;
+}
+
+.headerContainer h1 {
+  font-size: 36px;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.subText {
+  font-size: 16px;
+  color: #64748b;
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+.midTitle {
+  font-size: 28px;
+  color: #0f172a;
+  font-weight: 800;
+  margin-top: 20px;
+}
