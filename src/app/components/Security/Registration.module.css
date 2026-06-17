@@ -1,0 +1,100 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+  .reg h2 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 60%;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 55%;
+  }
+}
+.container {
+  background: linear-gradient(135deg, #7da6e3 0%, #5711ef 100%);
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(99, 34, 239, 0.15);
+  position: relative;
+  top: -50px;
+}
+.reg h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+@media (max-width: 768px) {
+  .reg h2 {
+    font-size: 25px;
+  }
+}
+.regT {
+  font-size: 16px;
+  font-weight: 500;
+  color: #9b9999;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  padding-bottom: 2px;
+}
+@media (max-width: 768px) {
+  .regT {
+    font-size: 15px;
+  }
+}
+.reg {
+  padding-top: 20px;
+}
+.regp {
+  padding: 20px;
+  color: #9a9dec;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  text-decoration: none;
+  margin: auto;
+  gap: 15px;
+  background-color: #fff;
+  color: #026960;
+  padding: 14px 28px;
+  border-radius: 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(2, 105, 96, 0.2) ظلال ناعمة بلون الزر تعطي فخامة;
+  font-family: Cairo;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-2px); /* تأثير ارتفاع طفيف جداً عند التمرير */
+  box-shadow: 0 6px 20px rgba(2, 105, 96, 0.3);
+}

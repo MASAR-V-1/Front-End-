@@ -30,35 +30,35 @@ const Security = () => {
         />
         <SecurityCard
           content={{
-            icon: <LogIn />,
+            icon: <LogIn size={30} />,
             name: "تسجيل دخول امن",
             cont: "حماية حسابات المستخدمين بمعايير عالية",
           }}
         />
         <SecurityCard
           content={{
-            icon: <ShieldCog />,
+            icon: <ShieldCog size={30} />,
             name: "صلاحيات قابلة للتحكم",
             cont: "ادارة كاملة للوصول للبيانات ",
           }}
         />
         <SecurityCard
           content={{
-            icon: <ClipboardMinus />,
+            icon: <ClipboardMinus size={30} />,
             name: "سجل تدقيق",
             cont: "تتبع كامل لكل الاجراءات و التغييرات في النظام",
           }}
         />
         <SecurityCard
           content={{
-            icon: <LockKeyhole />,
+            icon: <LockKeyhole size={30} />,
             name: "حماية البيانات الحساسة",
             cont: "بيئة معزولة تماما لبيانات مؤسستك",
           }}
         />
         <SecurityCard
           content={{
-            icon: <MonitorCheck />,
+            icon: <MonitorCheck size={30} />,
             name: "تحقق قبل التفعيل",
             cont: "بيئة معزولة تماما لبيانات مؤسستك",
           }}
