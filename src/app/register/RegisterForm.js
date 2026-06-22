@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion"; // 🌟 استيراد مكتبة الأنيميشن لحركة الدخول السلسة
 import {
   Building2,
   Mail,
@@ -16,7 +17,7 @@ import {
 } from "lucide-react";
 
 export default function RegisterForm() {
-  const router = useRouter(); // 🌟 تجهيز محرك الانتقال الديناميكي
+  const router = useRouter(); // تجهيز محرك الانتقال الديناميكي
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -33,7 +34,7 @@ export default function RegisterForm() {
     agreedToTerms: false,
   });
 
-  // دالة تحديث البيانات عند الكتابة
+  // دالة تحديث البيانات عند الكتابة في الحقول
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -42,31 +43,35 @@ export default function RegisterForm() {
     });
   };
 
-  // 🌟 الكشافات الإلكترونية (الفحص الديناميكي لمتطلبات كلمة المرور)
+  // الكشافات الإلكترونية (الفحص الديناميكي لمتطلبات كلمة المرور ثانية بثانية)
   const isLengthValid = formData.password.length >= 8;
   const hasNumber = /[0-9]/.test(formData.password);
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>_]/.test(formData.password);
 
-  // 🌟 دالة الإرسال الموحدة والذكية (حارس البوابة + الانتقال الديناميكي)
+  // دالة الإرسال (حارس البوابة + الانتقال الديناميكي بعد نجاح الفحص)
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 1. فحص تطابق كلمات المرور (الحارس)
+    // فحص تطابق كلمات المرور
     if (formData.password !== formData.confirmPassword) {
       alert("كلمات المرور غير متطابقة!");
-      return; // 🛑 إيقاف الكود فوراً ومنع الإرسال
+      return; // إيقاف الكود فوراً ومنع الإرسال للـ Back-End
     }
 
-    // 2. طباعة البيانات بعد نجاح الفحص
-    console.log("البيانات الجاهزة للإرسال وبأمان:", formData);
-    console.log("تمت العملية بنجاح! جاري الانتقال...");
+    console.log("البيانات الجاهزة للإرسال وبأمان إلى الـ Back-End:", formData);
 
-    // 3. 🚀 الحركة الديناميكية: انتقال سلس للوحة التحكم
+    // 🚀 الحركة الديناميكية: انتقال سلس للوحة التحكم بعد نجاح العملية
     router.push("/dashboard");
   };
 
   return (
-    <section className={styles.formSection}>
+    // 🌟 تحويل الـ section لـ motion.section لإضافة تأثير الدخول السينمائي
+    <motion.section
+      className={styles.formSection}
+      initial={{ opacity: 0, y: 30 }} // يبدأ الشاش شفاف ونازل لأسفل بـ 30 بكسل
+      animate={{ opacity: 1, y: 0 }} // يرتفع لمكانه الطبيعي وتكتمل الشفافية
+      transition={{ duration: 0.6, ease: "easeOut" }} // الحركة تستغرق 0.6 ثانية بنعومة فائقة
+    >
       <form className={styles.workspaceForm} onSubmit={handleSubmit}>
         {/* الصف الأول: اسم المؤسسة + البريد الإلكتروني للمؤسسة */}
         <div className={styles.formRow}>
@@ -259,6 +264,6 @@ export default function RegisterForm() {
           </button>
         </div>
       </form>
-    </section>
+    </motion.section>
   );
 }

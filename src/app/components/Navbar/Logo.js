@@ -4,7 +4,7 @@ const Logo = ({ width, height }) => {
   return (
     <Image
       style={{ cursor: "pointer", borderRadius: "40%" }}
-      src="/logo.svg"
+      src="/logo.png"
       alt="شعار منصة مسار"
       width={width}
       height={height}

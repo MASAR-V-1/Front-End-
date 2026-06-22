@@ -30,7 +30,7 @@ export default function RegisterWorkspace() {
       <header className={styles.headerBanner}>
         <div className={styles.logoIcon}>
           <Image
-            src="/logo-Photoroom.png"
+            src="/logo.png"
             alt="شعار مَسَار"
             width={250} /* اضبط الحجم المناسب لتصميمك */
             height={250} /* اضبط الحجم المناسب لتصميمك */
