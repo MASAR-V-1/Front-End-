@@ -29,13 +29,15 @@ export default function RegisterWorkspace() {
          ========================================== */}
       <header className={styles.headerBanner}>
         <div className={styles.logoIcon}>
-          <Image
-            src="/logo.png"
-            alt="شعار مَسَار"
-            width={250} /* اضبط الحجم المناسب لتصميمك */
-            height={250} /* اضبط الحجم المناسب لتصميمك */
-            priority /* لجعل المتصفح يحمل اللوجو فوراً دون تأخير */
-          />
+          <Link href={"/"}>
+            <Image
+              src="/logo.png"
+              alt="شعار مَسَار"
+              width={250} /* اضبط الحجم المناسب لتصميمك */
+              height={250} /* اضبط الحجم المناسب لتصميمك */
+              priority /* لجعل المتصفح يحمل اللوجو فوراً دون تأخير */
+            />
+          </Link>
         </div>
 
         <h1 className={styles.mainTitle}>إنشاء مساحة عمل</h1>
