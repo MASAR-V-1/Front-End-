@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
+import { useRouter } from "next/navigation";
 import {
   Building2,
   Mail,
@@ -15,6 +16,7 @@ import {
 } from "lucide-react";
 
 export default function RegisterForm() {
+  const router = useRouter(); // 🌟 تجهيز محرك الانتقال الديناميكي
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -45,10 +47,22 @@ export default function RegisterForm() {
   const hasNumber = /[0-9]/.test(formData.password);
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>_]/.test(formData.password);
 
-  // دالة الإرسال
+  // 🌟 دالة الإرسال الموحدة والذكية (حارس البوابة + الانتقال الديناميكي)
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("البيانات الجاهزة للإرسال:", formData);
+
+    // 1. فحص تطابق كلمات المرور (الحارس)
+    if (formData.password !== formData.confirmPassword) {
+      alert("كلمات المرور غير متطابقة!");
+      return; // 🛑 إيقاف الكود فوراً ومنع الإرسال
+    }
+
+    // 2. طباعة البيانات بعد نجاح الفحص
+    console.log("البيانات الجاهزة للإرسال وبأمان:", formData);
+    console.log("تمت العملية بنجاح! جاري الانتقال...");
+
+    // 3. 🚀 الحركة الديناميكية: انتقال سلس للوحة التحكم
+    router.push("/dashboard");
   };
 
   return (
@@ -199,7 +213,7 @@ export default function RegisterForm() {
           </div>
         </div>
 
-        {/* 🌟 كرت متطلبات كلمة المرور المربوط ديناميكياً بالحالة */}
+        {/* كرت متطلبات كلمة المرور المربوط ديناميكياً بالحالة */}
         <div className={styles.passwordRequirements}>
           <p className={styles.reqTitle}>متطلبات كلمة المرور:</p>
           <div className={styles.reqList}>
