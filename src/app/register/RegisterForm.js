@@ -16,6 +16,25 @@ import {
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    organizationName: "",
+    organizationEmail: "",
+    region: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+    personalEmail: "",
+    organizationType: "",
+    agreedToTerms: false, // هذا الوحيد بولين (true/false) لأنه Checkbox
+  });
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    setFormData({
+      ...formData, // احتفظ بالبيانات القديمة كما هي ولا تمسحها
+      [name]: type === "checkbox" ? checked : value, // حدّث فقط الحقل الذي يكتب فيه المستخدم حالياً
+    });
+  };
 
   return (
     <section className={styles.formSection}>
