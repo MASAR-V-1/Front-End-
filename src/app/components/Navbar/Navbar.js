@@ -26,7 +26,7 @@ export default function Navbar() {
           {/* 1. أقصى اليمين: الشعار */}
           <div className={styles.logoContainer}>
             <Link href={"/"} className={styles.logoLink}>
-              <Logo width={100} height={100} />
+              <Logo width={130} height={130} />
             </Link>
           </div>
 
