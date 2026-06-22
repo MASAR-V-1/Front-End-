@@ -74,7 +74,7 @@
 }
 
 .registerBtn {
-  background-color: #026960; /* اللون التركوازي المميز */
+  background-color: #026960;
   font-family: Cairo;
   color: #ffffff;
   border: none;
@@ -84,6 +84,7 @@
   font-weight: normal;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .registerBtn:hover {
