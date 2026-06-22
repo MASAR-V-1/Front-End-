@@ -1,0 +1,393 @@
+/* ==========================================
+   الحاوية الرئيسية والهيدر المتدرج (Banner)
+   ========================================== */
+.pageContainer {
+  width: 100%;
+  /* min-height: 100vh; */
+  background-color: #f8fafc;
+  direction: rtl;
+  font-family: "Cairo", sans-serif;
+  padding-bottom: 60px;
+}
+
+.headerBanner {
+  width: 100%;
+  background: linear-gradient(135deg, #024843 0%, #1d5cb3 50%, #1e6ae6 100%);
+  /* padding: 60px 20px 140px 20px;     */
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.logoIcon {
+  filter: brightness(0) invert(1);
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  position: relative;
+  top: -90px;
+  padding-bottom: 20px;
+}
+
+.subTitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  position: relative;
+  top: -80px;
+  /* max-width: 60px0; */
+  margin: 0 auto;
+}
+
+/* ==========================================
+   ترتيب الأعمدة والمحتوى الرئيسي
+   ========================================== */
+.mainContent {
+  margin-top: -60px; /* لرفع الكروت فوق الخلفية المتدرجة كالتصميم */
+  padding: 0 20px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ==========================================
+   تنسيق العمود الأيمن (Form Section)
+   ========================================== */
+.formSection {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.workspaceForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper input,
+.inputWrapper select {
+  width: 100%;
+  padding: 14px 45px 14px 20px; /* مسافة أوسع على اليمين للأيقونة */
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1e293b;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.inputWrapper select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.inputWrapper input:focus,
+.inputWrapper select:focus {
+  border-color: #026960;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(2, 105, 96, 0.1);
+}
+
+.fieldIcon {
+  position: absolute;
+  right: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.toggleVisibility {
+  position: absolute;
+  left: 16px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.toggleVisibility:hover {
+  color: #64748b;
+}
+
+/* متطلبات كلمة المرور */
+.passwordRequirements {
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px dashed #e2e8f0;
+}
+
+.reqTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.reqList {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.reqItem {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reqItem.valid {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* الشروط والأحكام */
+.termsAgreement {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.checkboxInput {
+  width: 18px;
+  height: 18px;
+  accent-color: #026960;
+  cursor: pointer;
+}
+
+.termsAgreement a {
+  color: #1e6ae6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.termsAgreement a:hover {
+  text-decoration: underline;
+}
+
+/* زر الحفظ */
+.submitContainer {
+  display: flex;
+  justify-content: flex-start; /* ليكون الزر على اليمين بالتوافق مع التصميم العربي */
+}
+
+.submitBtn {
+  background-color: #024843;
+  color: #ffffff;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  font-family: Cairo;
+}
+
+.submitBtn:hover {
+  background-color: #01332f;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   تنسيق العمود الأيسر (Sidebar Section)
+   ========================================== */
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modulesCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #edf2f7;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.badge {
+  font-size: 0.8rem;
+  color: #64748b;
+  background-color: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.gridIcon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  width: 24px;
+  height: 24px;
+}
+
+.gridIcon span {
+  background-color: #026960;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.modulesLabel {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.modulesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.moduleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #f1f5f9;
+}
+
+.moduleName {
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.moduleIconWrapper {
+  background-color: #e2f2f0;
+  color: #026960;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* كرت التحويل لتسجيل الدخول */
+.loginRedirectCard {
+  background-color: #edf5f4;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.loginRedirectCard p {
+  margin-bottom: 10px;
+}
+
+.loginLink {
+  color: #1e6ae6;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+.reqItem.valid {
+  color: #16a34a; /* اللون الأخضر */
+  font-weight: 600;
+}
+
+/* ==========================================
+   التجاوب مع الشاشات (Responsive Layout)
+   ========================================== */
+@media (max-width: 992px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarSection {
+    grid-row: 1; /* يرفع السايدبار ليكون فوق الفورم في الموبايل لترتيب بصري أفضل */
+  }
+}
+
+@media (max-width: 640px) {
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .formSection {
+    padding: 20px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+}
