@@ -11,7 +11,7 @@ const Registration = () => {
         <p className={styles.regT}>
           انشأ مساحة عمل. فعل الوحدات المناسبة وابدا ادارةالعمليات من مكان واحد
         </p>
-        <Link href={"/"} className={styles.btn}>
+        <Link href={"/register"} className={styles.btn}>
           <ArrowLeft />
           سجل مؤسستك
         </Link>

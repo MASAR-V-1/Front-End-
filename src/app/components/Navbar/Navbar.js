@@ -56,8 +56,9 @@ export default function Navbar() {
 
           {/* 3. أقصى الشمال: زر التسجيل + زر الـ Burger الذكي */}
           <div className={styles.navAction}>
-            <button className={styles.registerBtn}>سجّل مؤسستك</button>
-
+            <Link href="/register" className={styles.registerBtn}>
+              سجّل مؤسستك
+            </Link>
             {/* زر الـ Burger المكون من 3 أسطر تتحول إلى X عند الفتح */}
             <button
               className={`${styles.burgerMenu} ${isMenuOpen ? styles.burgerActive : ""}`}
