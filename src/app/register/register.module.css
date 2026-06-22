@@ -230,6 +230,7 @@
   align-items: center;
   gap: 12px;
   transition: all 0.2s ease;
+  font-family: Cairo;
 }
 
 .submitBtn:hover {
@@ -357,6 +358,10 @@
 
 .loginLink:hover {
   text-decoration: underline;
+}
+.reqItem.valid {
+  color: #16a34a; /* اللون الأخضر */
+  font-weight: 600;
 }
 
 /* ==========================================
