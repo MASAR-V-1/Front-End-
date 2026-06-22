@@ -47,7 +47,6 @@ export default function RegisterSidebar() {
         </ul>
       </div>
 
-      {/* 2. كرت رابط تسجيل الدخول السريع */}
       <div className={styles.loginRedirectCard}>
         <p>لديك مساحة عمل بالفعل؟</p>
         <Link href="/login" className={styles.loginLink}>

@@ -3,7 +3,7 @@
    ========================================== */
 .pageContainer {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #f8fafc;
   direction: rtl;
   font-family: "Cairo", sans-serif;
@@ -13,35 +13,34 @@
 .headerBanner {
   width: 100%;
   background: linear-gradient(135deg, #024843 0%, #1d5cb3 50%, #1e6ae6 100%);
-  padding: 60px 20px 140px 20px;
+  /* padding: 60px 20px 140px 20px;     */
   text-align: center;
   color: #ffffff;
-}
-
-.logoWrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
-
-.logoText {
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+.logoIcon {
+  filter: brightness(0) invert(1);
 }
 
 .mainTitle {
   font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  position: relative;
+  top: -90px;
+  padding-bottom: 20px;
 }
 
 .subTitle {
   font-size: 1.1rem;
   opacity: 0.9;
-  max-width: 60px0;
+  position: relative;
+  top: -80px;
+  /* max-width: 60px0; */
   margin: 0 auto;
 }
 
@@ -49,7 +48,7 @@
    ترتيب الأعمدة والمحتوى الرئيسي
    ========================================== */
 .mainContent {
-  margin-top: -80px; /* لرفع الكروت فوق الخلفية المتدرجة كالتصميم */
+  margin-top: -60px; /* لرفع الكروت فوق الخلفية المتدرجة كالتصميم */
   padding: 0 20px;
 }
 

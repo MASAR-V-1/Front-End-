@@ -17,6 +17,7 @@ import {
   Activity,
   ChevronDown,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function RegisterWorkspace() {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,15 +25,19 @@ export default function RegisterWorkspace() {
 
   return (
     <div className={styles.pageContainer}>
-      {/* ==========================================
-         [الجزء 1]: الهيدر الخلفي الممتد
+      {/*====================================
          ========================================== */}
       <header className={styles.headerBanner}>
-        <div className={styles.logoWrapper}>
-          {/* هنا أيقونة مسار وجنبها الاسم */}
-          <div className={styles.logoIcon}></div>
-          <span className={styles.logoText}>مَسَار</span>
+        <div className={styles.logoIcon}>
+          <Image
+            src="/logo-Photoroom.png"
+            alt="شعار مَسَار"
+            width={250} /* اضبط الحجم المناسب لتصميمك */
+            height={250} /* اضبط الحجم المناسب لتصميمك */
+            priority /* لجعل المتصفح يحمل اللوجو فوراً دون تأخير */
+          />
         </div>
+
         <h1 className={styles.mainTitle}>إنشاء مساحة عمل</h1>
         <p className={styles.subTitle}>
           أدخل بيانات مؤسستك للبدء في إعداد مساحة العمل الخاصة بك.

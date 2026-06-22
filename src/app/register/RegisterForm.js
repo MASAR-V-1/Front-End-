@@ -149,8 +149,8 @@ export default function RegisterForm() {
         <div className={styles.termsAgreement}>
           <input type="checkbox" id="terms" className={styles.checkboxInput} />
           <label htmlFor="terms">
-            أوافق على <Link href="/terms">الشروط والأحكام</Link> و{" "}
-            <Link href="/privacy">سياسة الخصوصية</Link>.
+            {/* أوافق على <Link href="/terms">الشروط والأحكام</Link> و{" "} */}
+            {/* <Link href="/privacy">سياسة الخصوصية</Link>. */}
           </label>
         </div>
 
