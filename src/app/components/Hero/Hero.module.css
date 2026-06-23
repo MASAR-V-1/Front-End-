@@ -66,10 +66,9 @@
   transform: translate(-50%, -50%); /* يضمن التوسيط الهندسي الدقيق في السنتر */
   width: 850px;
   height: 850px;
-  /* تدرج شعاعي ناعم بلون زمردي خفيف جداً ليحدث دمجاً ساحراً بين التركوازي والأزرق */
   background: radial-gradient(
     circle,
-    rgba(119, 55, 197, 0.329) 0%,
+    rgba(112, 55, 197, 0.329) 0%,
     rgba(4, 120, 87, 0) 70%
   );
   filter: blur(
@@ -287,6 +286,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  /* z-index: 100; */
 }
 
 /* البار العلوي داخل اللوحة */
@@ -295,6 +296,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 
 .headerLine {
