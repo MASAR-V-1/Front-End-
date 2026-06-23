@@ -5,7 +5,7 @@ import Logo from "../Navbar/Logo";
 
 export default function Footer() {
   return (
-    <footer className={styles.footerContainer}>
+    <footer id="contact" className={styles.footerContainer}>
       {/* الجزء العلوي: القوائم والشعار */}
       <div className={styles.topSection}>
         {/* العمود 1: شعار ووصف مسار */}

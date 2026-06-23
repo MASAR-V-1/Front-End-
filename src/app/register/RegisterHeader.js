@@ -3,30 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
-import {
-  Building2,
-  Mail,
-  Phone,
-  MapPin,
-  Lock,
-  Eye,
-  EyeOff,
-  Settings,
-  ShieldAlert,
-  Users,
-  Activity,
-  ChevronDown,
-} from "lucide-react";
 import Image from "next/image";
 
 export default function RegisterWorkspace() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   return (
     <div className={styles.pageContainer}>
-      {/*====================================
-         ========================================== */}
       <header className={styles.headerBanner}>
         <div className={styles.logoIcon}>
           <Link href={"/"}>

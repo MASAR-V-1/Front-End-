@@ -126,7 +126,6 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* حسابات حركة وعرض الخط متوافقة بالملي مع أبعاد خط Cairo */
 .home {
   right: 0px;
   width: 58px;
@@ -139,15 +138,14 @@
   right: 177px;
   width: 54px;
 }
-.how-it-works {
+.compare {
   right: 266px;
   width: 74px;
 }
-.contact {
-  right: 375px;
+.footer {
+  right: 385px;
   width: 86px;
 }
-
 /* ==========================================
    التجاوب مع الشاشات (Responsive < 992px)
    ========================================== */
@@ -217,7 +215,6 @@
     display: none;
   }
 
-  /* تعديل حجم زر التسجيل ليناسب الشاشات الصغيرة */
   .registerBtn {
     padding: 10px 20px;
     font-size: 0.95rem;

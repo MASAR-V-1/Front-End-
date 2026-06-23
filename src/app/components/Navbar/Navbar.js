@@ -8,11 +8,11 @@ import { useState } from "react";
 
 export default function Navbar() {
   const navItems = [
-    { id: "#", name: "الرئيسية", href: "/" },
+    { id: "nav", name: "الرئيسية", href: "/" },
     { id: "security", name: "الأمان", href: "/security" },
     { id: "modules", name: "الوحدات", href: "/modules" },
     { id: "compare", name: "كيف يعمل", href: "/how-it-works" },
-    { id: "contact", name: "تواصل معنا", href: "/contact" },
+    { id: "contact", name: "تواصل معنا", href: "/footer" },
   ];
 
   const [activeTab, setActiveTab] = useState("home");
@@ -20,7 +20,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className={styles.navbar}>
+    <nav id="nav" className={styles.navbar}>
       <div className="container">
         <div className={styles.navWrapper}>
           {/* 1. أقصى اليمين: الشعار */}

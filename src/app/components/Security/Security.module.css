@@ -27,8 +27,39 @@
 
 .securityCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 80%;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 80%;
+  }
 }
