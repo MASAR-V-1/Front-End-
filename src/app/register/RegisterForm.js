@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion"; // 🌟 استيراد مكتبة الأنيميشن لحركة الدخول السلسة
 import {
   Building2,
   Mail,
@@ -65,13 +64,7 @@ export default function RegisterForm() {
   };
 
   return (
-    // 🌟 تحويل الـ section لـ motion.section لإضافة تأثير الدخول السينمائي
-    <motion.section
-      className={styles.formSection}
-      initial={{ opacity: 0, y: 30 }} // يبدأ الشاش شفاف ونازل لأسفل بـ 30 بكسل
-      animate={{ opacity: 1, y: 0 }} // يرتفع لمكانه الطبيعي وتكتمل الشفافية
-      transition={{ duration: 0.6, ease: "easeOut" }} // الحركة تستغرق 0.6 ثانية بنعومة فائقة
-    >
+    <section className={styles.formSection}>
       <form className={styles.workspaceForm} onSubmit={handleSubmit}>
         {/* الصف الأول: اسم المؤسسة + البريد الإلكتروني للمؤسسة */}
         <div className={styles.formRow}>
@@ -264,6 +257,6 @@ export default function RegisterForm() {
           </button>
         </div>
       </form>
-    </motion.section>
+    </section>
   );
 }
