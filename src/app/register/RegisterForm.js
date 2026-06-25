@@ -16,11 +16,13 @@ import {
 } from "lucide-react";
 
 export default function RegisterForm() {
-  const router = useRouter(); // تجهيز محرك الانتقال الديناميكي
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // المفكرة الشاملة لتخزين بيانات كل الحقول
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
     organizationName: "",
     organizationEmail: "",
@@ -33,7 +35,6 @@ export default function RegisterForm() {
     agreedToTerms: false,
   });
 
-  // دالة تحديث البيانات عند الكتابة في الحقول
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -42,30 +43,91 @@ export default function RegisterForm() {
     });
   };
 
-  // الكشافات الإلكترونية (الفحص الديناميكي لمتطلبات كلمة المرور ثانية بثانية)
   const isLengthValid = formData.password.length >= 8;
   const hasNumber = /[0-9]/.test(formData.password);
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>_]/.test(formData.password);
 
-  // دالة الإرسال (حارس البوابة + الانتقال الديناميكي بعد نجاح الفحص)
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    // فحص تطابق كلمات المرور
+    // 1. الفحص المحلي (Frontend Validation)
     if (formData.password !== formData.confirmPassword) {
-      alert("كلمات المرور غير متطابقة!");
-      return; // إيقاف الكود فوراً ومنع الإرسال للـ Back-End
+      setError("كلمات المرور غير متطابقة!");
+      return;
     }
 
-    console.log("البيانات الجاهزة للإرسال وبأمان إلى الـ Back-End:", formData);
+    if (!formData.agreedToTerms) {
+      setError("يجب الموافقة على الشروط والأحكام للاستمرار.");
+      return;
+    }
 
-    // 🚀 الحركة الديناميكية: انتقال سلس للوحة التحكم بعد نجاح العملية
-    router.push("/dashboard");
+    setIsLoading(true);
+
+    const payload = {
+      organization_name: formData.organizationName,
+      organization_email: formData.organizationEmail,
+      region: formData.region,
+      phone: formData.phone,
+      password: formData.password,
+      password_confirmation: formData.confirmPassword,
+      personal_email: formData.personalEmail,
+      organization_type: formData.organizationType,
+    };
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/register-organization`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "فشلت عملية التسجيل، تحقق من الحقول الكلية.",
+        );
+      }
+
+      console.log("رد السيرفر بنجاح (Response):", data);
+
+      // 🌟 التعديل هنا: التوجيه لصفحة تأكيد البريد وتمرير الإيميل المكتوب بشكل آمن ومحمي
+      router.push(
+        `/verify-email?email=${encodeURIComponent(formData.organizationEmail)}`,
+      );
+    } catch (err) {
+      console.error("خطأ أثناء الاتصال بالـ API:", err);
+      setError(
+        err.message || "تعذر الاتصال بالسيرفر، تأكد من تشغيل الباك إند.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <section className={styles.formSection}>
       <form className={styles.workspaceForm} onSubmit={handleSubmit}>
+        {error && (
+          <div
+            style={{
+              color: "#ff4d4d",
+              marginBottom: "20px",
+              fontWeight: "bold",
+              fontSize: "14px",
+            }}
+          >
+            ⚠️ {error}
+          </div>
+        )}
+
         {/* الصف الأول: اسم المؤسسة + البريد الإلكتروني للمؤسسة */}
         <div className={styles.formRow}>
           <div className={styles.inputGroup}>
@@ -251,9 +313,15 @@ export default function RegisterForm() {
 
         {/* زر الإرسال الرئيسي */}
         <div className={styles.submitContainer}>
-          <button type="submit" className={styles.submitBtn}>
-            <span>إنشاء مساحة العمل</span>
-            <ArrowLeft size={18} />
+          <button
+            type="submit"
+            className={styles.submitBtn}
+            disabled={isLoading}
+          >
+            <span>
+              {isLoading ? "جاري إنشاء مساحة العمل..." : "إنشاء مساحة العمل"}
+            </span>
+            {!isLoading && <ArrowLeft size={18} />}
           </button>
         </div>
       </form>
