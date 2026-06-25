@@ -4,7 +4,6 @@ import styles from "./register.module.css";
 import RegisterHeader from "./RegisterHeader";
 import RegisterForm from "./RegisterForm";
 import RegisterSidebar from "./RegisterSidebar";
-import { registerOrganization } from "@/services/auth.service";
 
 export default function RegisterWorkspacePage() {
   return (

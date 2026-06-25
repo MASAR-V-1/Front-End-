@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
-import { registerOrganization } from "@/services/auth.service";
+import { registerOrganization } from "../services/auth.service";
 import {
   Building2,
   Mail,
@@ -78,7 +78,6 @@ export default function RegisterForm() {
 
     try {
       const data = await registerOrganization(payload);
-
       console.log("رد السيرفر بنجاح (Response):", data);
 
       // 🌟 التعديل هنا: التوجيه لصفحة تأكيد البريد وتمرير الإيميل المكتوب بشكل آمن ومحمي
