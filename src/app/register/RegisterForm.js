@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export default function RegisterForm() {
-  const router = useRouter(); // تجهيز محرك الانتقال الديناميكي
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -47,10 +47,9 @@ export default function RegisterForm() {
   const hasNumber = /[0-9]/.test(formData.password);
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>_]/.test(formData.password);
 
-  // 🚀 دالة الإرسال المحدثة لربط واختبار الـ API
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // تصفير أي خطأ سابق
+    setError("");
 
     // 1. الفحص المحلي (Frontend Validation)
     if (formData.password !== formData.confirmPassword) {
@@ -63,9 +62,8 @@ export default function RegisterForm() {
       return;
     }
 
-    setIsLoading(true); // تشغيل مؤشر التحميل وقفل الزر
+    setIsLoading(true);
 
-    // 2. تجميع البيانات بالصيغة القياسية (Snake_case) لتتوافق مع الـ Back-End
     const payload = {
       organization_name: formData.organizationName,
       organization_email: formData.organizationEmail,
@@ -92,9 +90,7 @@ export default function RegisterForm() {
 
       const data = await response.json();
 
-      // 4. فحص استجابة السيرفر
       if (!response.ok) {
-        // التقاط أخطاء الفاليديشين من الباك إند (مثل: الإيميل مكرر)
         throw new Error(
           data.message || "فشلت عملية التسجيل، تحقق من الحقول الكلية.",
         );
@@ -102,22 +98,23 @@ export default function RegisterForm() {
 
       console.log("رد السيرفر بنجاح (Response):", data);
 
-      // التوجيه المؤقت للوحة التحكم بعد نجاح العملية
-      router.push("/dashboard");
+      // 🌟 التعديل هنا: التوجيه لصفحة تأكيد البريد وتمرير الإيميل المكتوب بشكل آمن ومحمي
+      router.push(
+        `/verify-email?email=${encodeURIComponent(formData.organizationEmail)}`,
+      );
     } catch (err) {
       console.error("خطأ أثناء الاتصال بالـ API:", err);
       setError(
         err.message || "تعذر الاتصال بالسيرفر، تأكد من تشغيل الباك إند.",
       );
     } finally {
-      setIsLoading(false); // فك قفل الزر بعد انتهاء المحاولة
+      setIsLoading(false);
     }
   };
 
   return (
     <section className={styles.formSection}>
       <form className={styles.workspaceForm} onSubmit={handleSubmit}>
-        {/* 🌟 عرض رسالة الخطأ للمستخدم فوق الحقول إن وجدت */}
         {error && (
           <div
             style={{
@@ -316,7 +313,6 @@ export default function RegisterForm() {
 
         {/* زر الإرسال الرئيسي */}
         <div className={styles.submitContainer}>
-          {/* 🌟 تعطيل الزر وتغيير النص ديناميكياً لحماية الطلبات */}
           <button
             type="submit"
             className={styles.submitBtn}
