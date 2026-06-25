@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
+import { registerOrganization } from "@/services/auth.service";
 import {
   Building2,
   Mail,
@@ -76,25 +77,7 @@ export default function RegisterForm() {
     };
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/register-organization`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        },
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data.message || "فشلت عملية التسجيل، تحقق من الحقول الكلية.",
-        );
-      }
+      const data = await registerOrganization(payload);
 
       console.log("رد السيرفر بنجاح (Response):", data);
 
