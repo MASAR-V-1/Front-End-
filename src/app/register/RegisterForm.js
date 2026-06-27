@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
-import { registerOrganization } from "@/services/auth.service";
 import {
   Building2,
   Mail,
