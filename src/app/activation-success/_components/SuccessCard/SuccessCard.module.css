@@ -1,0 +1,172 @@
+.cardContainer {
+  background: #ffffff;
+  max-width: 580px;
+  width: 92%;
+  margin: -80px auto 40px auto; /* مارجن علوي بالسالب لكي يركب الكرت فوق الهيدر المتدرج بالملي */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* شارة النجاح الخضراء الدائرية */
+.successBadgeWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.successBadge {
+  background-color: #d1fae5; /* أخضر ناعم جداً */
+  color: #065f46; /* أخضر غامق للأيقونة */
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.cardSubTitle {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 460px;
+  margin: 0 auto 25px auto;
+}
+
+/* حاوية البادجات (Tags) */
+.tagsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tagBlue {
+  background-color: #eff6ff;
+  color: #1e40af;
+}
+
+.tagGreen {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+
+/* شارة الحالة اللامعة المضيئة */
+.pulseBadgeWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.pulseBadge {
+  background-color: #e8fbf2;
+  color: #047857;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+/* منطقة الأزرار أفقياً كصف */
+.actionButtonsRow {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+}
+
+.primaryBtn {
+  flex: 1;
+  background-color: #064e3b; /* الأخضر الزيتي الداكن الفخم */
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #043629;
+}
+
+.secondaryBtn {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #064e3b; /* إطار بنفس لون الأخضر الداكن */
+  color: #064e3b;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: #f0fdf4; /* خلفية خضراء باهتة جداً عند الحوم */
+}
+
+/* للتجاوب مع الشاشات الصغيرة */
+@media (max-width: 480px) {
+  .actionButtonsRow {
+    flex-direction: column;
+  }
+}

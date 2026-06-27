@@ -1,0 +1,49 @@
+import React from "react";
+import { Building2, ShieldCheck, Milestone } from "lucide-react";
+import styles from "./StatusCard.module.css"; // الستايل المعزول الخاص بالكرت فقط
+
+export default function StatusCard({ organizationName }) {
+  return (
+    <div className={styles.statusBox}>
+      {/* عنوان الكرت الداخلي */}
+      <h3 className={styles.statusTitle}>حالة النظام</h3>
+
+      {/* خط فاصل ناعم */}
+      <hr className={styles.divider} />
+
+      {/* شبكة المعلومات (Grid / Flex) */}
+      <div className={styles.infoGrid}>
+        {/* تفاصيل المؤسسة */}
+        <div className={styles.infoItem}>
+          <Building2 className={styles.infoIcon} size={20} />
+          <div className={styles.textGroup}>
+            <span className={styles.label}>المؤسسة</span>
+            <span className={styles.value}>
+              {organizationName || "مؤسسة الأمل"}
+            </span>
+          </div>
+        </div>
+
+        {/* حالة الحساب */}
+        <div className={styles.infoItem}>
+          <ShieldCheck className={styles.infoIconSuccess} size={20} />
+          <div className={styles.textGroup}>
+            <span className={styles.label}>حالة الحساب</span>
+            <span className={`${styles.value} styles.activeStatus`}>
+              مُفعّل
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* الخطوة التالية (تأتي بالأسفل بعرض كامل) */}
+      <div className={`${styles.infoItem} styles.fullWidth`}>
+        <Milestone className={styles.infoIconNext} size={20} />
+        <div className={styles.textGroup}>
+          <span className={styles.label}>الخطوة التالية</span>
+          <span className={styles.valueNext}>إعداد الوحدات والفريق</span>
+        </div>
+      </div>
+    </div>
+  );
+}
