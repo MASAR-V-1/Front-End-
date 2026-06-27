@@ -1,0 +1,105 @@
+.topHeader {
+  /* التدرج اللوني يبدأ من الأخضر الزيتي الغامق لليسار ويتحول للأزرق الحيوي جهة اليمين */
+  background: linear-gradient(135deg, #044e3a 0%, #0369a1 50%, #1d4ed8 100%);
+  padding: 50px 20px 140px 20px; /* زيادة الحشوة السفلية ليعطي مساحة كافية يغوص فيها الكرت الأبيض */
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+
+.logoArea {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.mainTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+
+/* حاوية الـ Stepper بالكامل */
+.stepperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 650px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+/* المكون الفردي للخطوة */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  min-width: 100px;
+}
+
+/* الدائرة الافتراضية للخطوات */
+.stepCircle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.stepLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
+/* 1. الخطوات المكتملة (إنشاء المساحة وتفعيل البريد) */
+.completed .stepCircle {
+  background-color: #a7f3d0; /* لون أخضر فاتح ناعم */
+  border-color: #a7f3d0;
+  color: #064e3b; /* لون أيقونة الصح الداكن */
+}
+
+.completed .stepLabel {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* 2. الخطوة النشطة الحالية (رقم 3 - فتح لوحة التحكم) */
+.active .stepCircle {
+  background-color: #064e3b; /* نفس اللون الزيتي الغامق الأصلي للخطوة النشطة */
+  border-color: #34d399; /* حافة خضراء مضيئة */
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25); /* ظل محيط بالدائرة لإبرازها */
+}
+
+.active .stepLabel {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* الخطوط الواصلة الأفقية بين الخطوات */
+.stepLine {
+  flex-grow: 1;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 24px; /* ليرتفع الخط أفقياً لمنتصف مستوى الدوائر بالملي */
+  position: relative;
+  z-index: 1;
+  max-width: 140px;
+}
+
+/* تلوين الخطوط بالأخضر المضيء لأن الخطوة 1 و 2 مكتملتان */
+.lineCompleted {
+  background-color: #34d399;
+}
