@@ -2,9 +2,10 @@ import React from "react";
 import { CheckCircle2, Check, LayoutDashboard, LogIn } from "lucide-react";
 import StatusCard from "../StatusCard/StatusCard"; // استدعاء كرت حالة النظام الداخلي
 import styles from "./SuccessCard.module.css"; // الستايل المعزول للكرت الرئيسي
+import { useRouter } from "next/navigation"; // ✨ التعديل الصحيح: الاستيراد من next/navigation وليس next/router
 
 export default function SuccessCard({ organizationName }) {
-  const router = useRouter(); // تهيئة الـ router
+  const router = useRouter(); // تهيئة الـ router بنجاح من الموجه الجديد
 
   const handleGoToDashboard = () => {
     router.push("/dashboard"); // تنقل سريع وسلس بدون إعادة تحميل الصفحة
@@ -13,6 +14,7 @@ export default function SuccessCard({ organizationName }) {
   const handleGoToLogin = () => {
     router.push("/login"); // تنقل سريع وسلس
   };
+
   return (
     <div className={styles.cardContainer}>
       {/* شارة النجاح الخضراء العلوية */}
@@ -41,14 +43,7 @@ export default function SuccessCard({ organizationName }) {
         </div>
       </div>
 
-      {/* شارة لوحة التحكم اللامعة */}
-      {/* <div className={styles.pulseBadgeWrapper}>
-        <span className={styles.pulseBadge}>
-          <span className={styles.pulseDot}></span>
-          لوحة التحكم: جاهزة
-        </span>
-      </div> */}
-
+      {/* كرت حالة النظام الداخلي المستدعى ديناميكياً */}
       <StatusCard organizationName={organizationName} />
 
       {/* منطقة الأزرار السفلية أفقياً */}
