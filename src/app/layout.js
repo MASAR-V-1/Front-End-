@@ -1,21 +1,25 @@
-import { Cairo } from "next/font/google"; // 1. استيراد الخط من نكست
+import { Cairo } from "next/font/google";
 import "./globals.css";
 
 const cairo = Cairo({
   subsets: ["arabic"],
-  weight: ["400", "500", "600", "700", "800"], // أوزان مختلفة من العادي إلى العريض جداً
-  variable: "--font-cairo", // تعريف متغير CSS للخط
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-cairo", // هذا هو المتغير المهم
 });
+
 export const metadata = {
   title: "منصة مسار | MASAR",
   description: "مساحة عمل رقمية متكاملة لإدارة العمليات والمؤسسات",
-  icon: "/logo.svg",
+  icons: {
+    icon: "/logo.svg", // التعديل الصحيح لكتابة الأيقونة في Next.js 13/14+
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${cairo.variable} ${cairo.className}`}>{children}</body>
+    <html lang="ar" dir="rtl">
+      {/* نمرر المتغير هنا ليصبح متاحاً لكل المشروع */}
+      <body className={cairo.variable}>{children}</body>
     </html>
   );
 }
