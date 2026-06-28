@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckCircle2, Check, LayoutDashboard, LogIn } from "lucide-react";
-import StatusCard from "./StatusCard"; // استدعاء كرت حالة النظام الداخلي
+import StatusCard from "../StatusCard/StatusCard"; // استدعاء كرت حالة النظام الداخلي
 import styles from "./SuccessCard.module.css"; // الستايل المعزول للكرت الرئيسي
 
 export default function SuccessCard({ organizationName }) {
@@ -17,7 +17,7 @@ export default function SuccessCard({ organizationName }) {
       {/* شارة النجاح الخضراء العلوية */}
       <div className={styles.successBadgeWrapper}>
         <div className={styles.successBadge}>
-          <CheckCircle2 size={32} strokeWidth={2.5} />
+          <CheckCircle2 size={32} strokeWidth={2.5} color="#B0F0D6" />
         </div>
       </div>
 
@@ -41,21 +41,20 @@ export default function SuccessCard({ organizationName }) {
       </div>
 
       {/* شارة لوحة التحكم اللامعة */}
-      <div className={styles.pulseBadgeWrapper}>
+      {/* <div className={styles.pulseBadgeWrapper}>
         <span className={styles.pulseBadge}>
           <span className={styles.pulseDot}></span>
           لوحة التحكم: جاهزة
         </span>
-      </div>
+      </div> */}
 
-      {/* استدعاء كرت حالة النظام البنفسجي وتمرير اسم المؤسسة ديناميكياً */}
       <StatusCard organizationName={organizationName} />
 
       {/* منطقة الأزرار السفلية أفقياً */}
       <div className={styles.actionButtonsRow}>
         {/* الزر الرئيسي: الانتقال إلى لوحة التحكم */}
         <button onClick={handleGoToDashboard} className={styles.primaryBtn}>
-          <span>الانتقال إلى لوحة التحكم</span>
+          <span>الانتقال إلى انشاء مساحة العمل </span>
           <LayoutDashboard size={18} />
         </button>
 

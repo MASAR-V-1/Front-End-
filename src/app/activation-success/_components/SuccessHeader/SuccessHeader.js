@@ -1,22 +1,31 @@
 import React from "react";
 import { Check } from "lucide-react";
 import styles from "./SuccessHeader.module.css"; // استيراد الستايل الخاص بهذا الهيدر فقط
+import Link from "next/link";
+import Image from "next/image";
 
 export default function SuccessHeader() {
   return (
     <div className={styles.topHeader}>
-      {/* اسم المنصة */}
-      <div className={styles.logoArea}>مَسَار</div>
+      <div className={styles.logoArea}>
+        <Link href={"/"}>
+          <Image
+            src="/logo.png"
+            alt="شعار مَسَار"
+            width={250}
+            height={250}
+            priority
+          />
+        </Link>
+      </div>
 
       {/* العنوان الجديد الخاص بمرحلة تفعيل الدخول */}
       <h1 className={styles.mainTitle}>الدخول إلى مساحة العمل</h1>
 
-      {/* حزام الخطوات (Stepper) المحدث */}
       <div className={styles.stepperContainer}>
-        {/* الخطوة 1: مكتملة (إنشاء المساحة) */}
         <div className={`${styles.step} ${styles.completed}`}>
           <div className={styles.stepCircle}>
-            <Check size={14} strokeWidth={3} />
+            <Check size={20} strokeWidth={3} />
           </div>
           <span className={styles.stepLabel}>إنشاء المساحة</span>
         </div>
@@ -27,7 +36,7 @@ export default function SuccessHeader() {
         {/* الخطوة 2: مكتملة أيضاً (تفعيل البريد) */}
         <div className={`${styles.step} ${styles.completed}`}>
           <div className={styles.stepCircle}>
-            <Check size={14} strokeWidth={3} />
+            <Check size={20} strokeWidth={3} />
           </div>
           <span className={styles.stepLabel}>تفعيل البريد</span>
         </div>

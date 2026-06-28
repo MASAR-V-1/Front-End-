@@ -23,17 +23,6 @@ export default function StatusCard({ organizationName }) {
             </span>
           </div>
         </div>
-
-        {/* حالة الحساب */}
-        <div className={styles.infoItem}>
-          <ShieldCheck className={styles.infoIconSuccess} size={20} />
-          <div className={styles.textGroup}>
-            <span className={styles.label}>حالة الحساب</span>
-            <span className={`${styles.value} styles.activeStatus`}>
-              مُفعّل
-            </span>
-          </div>
-        </div>
       </div>
 
       {/* الخطوة التالية (تأتي بالأسفل بعرض كامل) */}
@@ -41,7 +30,7 @@ export default function StatusCard({ organizationName }) {
         <Milestone className={styles.infoIconNext} size={20} />
         <div className={styles.textGroup}>
           <span className={styles.label}>الخطوة التالية</span>
-          <span className={styles.valueNext}>إعداد الوحدات والفريق</span>
+          <span className={styles.valueNext}>اكمال انشاء مساحة العمل </span>
         </div>
       </div>
     </div>

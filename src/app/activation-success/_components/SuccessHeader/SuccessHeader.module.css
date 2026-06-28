@@ -1,23 +1,24 @@
 .topHeader {
-  /* التدرج اللوني يبدأ من الأخضر الزيتي الغامق لليسار ويتحول للأزرق الحيوي جهة اليمين */
   background: linear-gradient(135deg, #044e3a 0%, #0369a1 50%, #1d4ed8 100%);
   padding: 50px 20px 140px 20px; /* زيادة الحشوة السفلية ليعطي مساحة كافية يغوص فيها الكرت الأبيض */
   text-align: center;
   color: white;
   width: 100%;
+  font-family:
+    Cairo,
+    Cairo Fallback;
 }
 
 .logoArea {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
+  filter: brightness(0) invert(1);
 }
 
 .mainTitle {
-  font-size: 24px;
+  font-size: 35px;
   font-weight: 600;
   margin-bottom: 35px;
+  position: relative;
+  top: -50px;
 }
 
 /* حاوية الـ Stepper بالكامل */
@@ -27,7 +28,6 @@
   align-items: center;
   max-width: 650px;
   margin: 0 auto;
-  gap: 12px;
 }
 
 /* المكون الفردي للخطوة */
@@ -38,13 +38,13 @@
   gap: 8px;
   position: relative;
   z-index: 2;
-  min-width: 100px;
+  /* min-width: 100px; */
 }
 
 /* الدائرة الافتراضية للخطوات */
 .stepCircle {
-  width: 34px;
-  height: 34px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -55,6 +55,7 @@
   font-weight: bold;
   color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
+  font-size: 20px;
 }
 
 .stepLabel {

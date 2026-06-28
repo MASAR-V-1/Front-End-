@@ -1,24 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import SuccessHeader from "./_components/SuccessHeader/SuccessHeader";
+import SuccessCard from "./_components/SuccessCard/SuccessCard";
 
 export default function ActivationSuccessPage() {
+  const searchParams = useSearchParams();
+  const [orgName, setOrgName] = useState("مؤسسة مَسَار الإنسانية");
+
+  useEffect(() => {
+    // جلب اسم المؤسسة ديناميكياً من الرابط إن وُجد، مثل: ?org=مؤسسة الأمل
+    const org = searchParams.get("org");
+    if (org) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setOrgName(decodeURIComponent(org));
+    }
+  }, [searchParams]);
+
   return (
     <div
       style={{
-        backgroundColor: "#f4f6fa",
+        backgroundColor: "#f8fafc",
         minHeight: "100vh",
+        width: "100%",
         direction: "rtl",
+        fontFamily: "Arial, sans-serif",
       }}
     >
-      {/* استدعاء المكون لرؤيته فوراً */}
+      {/* 1. المكون الأول: الهيدر المتدرج العلوي مع الـ Stepper */}
       <SuccessHeader />
 
-      {/* مكان البطاقة البيضاء القادمة */}
-      <div style={{ textAlign: "center", marginTop: "50px", color: "#64748b" }}>
-        [جاري تجهيز بطاقة النجاح وحالة النظام...]
-      </div>
+      {/* 2. المكون الثاني: الكرت الأبيض الشامل وبداخله كرت حالة النظام والأزرار */}
+      <SuccessCard organizationName={orgName} />
     </div>
   );
 }
