@@ -4,14 +4,15 @@ import StatusCard from "../StatusCard/StatusCard"; // استدعاء كرت حا
 import styles from "./SuccessCard.module.css"; // الستايل المعزول للكرت الرئيسي
 
 export default function SuccessCard({ organizationName }) {
+  const router = useRouter(); // تهيئة الـ router
+
   const handleGoToDashboard = () => {
-    window.location.href = "/dashboard"; // أو التوجيه باستخدام router حسب تفضيلك
+    router.push("/dashboard"); // تنقل سريع وسلس بدون إعادة تحميل الصفحة
   };
 
   const handleGoToLogin = () => {
-    window.location.href = "/login";
+    router.push("/login"); // تنقل سريع وسلس
   };
-
   return (
     <div className={styles.cardContainer}>
       {/* شارة النجاح الخضراء العلوية */}
