@@ -4,10 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
-<<<<<<< HEAD
-import { registerOrganization } from "@/services/auth.service";
-=======
->>>>>>> 2d2f4a0979e0236554c5394e4db2e6a06992bc3f
+import { registerOrganization } from "../services/auth.service";
 import {
   Building2,
   Mail,
