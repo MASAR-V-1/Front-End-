@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import StepperHeader from "./components/StepperHeader/StepperHeader";
+import StepperHeader from "./_components/StepperHeader/StepperHeader";
 import styles from "./verify.module.css"; // الستايل الخارجي الكلي للشاشة (فاضي حالياً)
-import VerifyCard from "./components/VerifyCard/VerifyCard";
+import VerifyCard from "./_components/VerifyCard/VerifyCard";
 
 export default function VerifyEmailPage() {
   return (
