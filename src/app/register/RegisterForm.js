@@ -14,7 +14,7 @@ import {
   Eye,
   EyeOff,
   ArrowLeft,
-} from "lucide-react";
+} from "lucide-react"; //icons
 
 export default function RegisterForm() {
   const router = useRouter();
