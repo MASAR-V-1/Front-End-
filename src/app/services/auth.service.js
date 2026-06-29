@@ -16,7 +16,10 @@ export async function registerOrganization(payload) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Registration failed");
+    const errorMessages = data.errors
+      ? Object.values(data.errors).flat().join(" | ")
+      : data.message;
+    throw new Error(errorMessages || "Registration failed");
   }
 
   return data;

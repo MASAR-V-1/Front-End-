@@ -68,12 +68,13 @@ export default function RegisterForm() {
     const payload = {
       organization_name: formData.organizationName,
       organization_email: formData.organizationEmail,
+      admin_email: formData.personalEmail,
       region: formData.region,
       phone: formData.phone,
-      password: formData.password,
-      password_confirmation: formData.confirmPassword,
-      personal_email: formData.personalEmail,
+      admin_password: formData.password,
+      admin_password_confirmation: formData.confirmPassword,
       organization_type: formData.organizationType,
+      agreed_to_terms: formData.agreedToTerms,
     };
 
     try {
