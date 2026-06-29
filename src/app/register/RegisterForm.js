@@ -81,7 +81,6 @@ export default function RegisterForm() {
 
       console.log("رد السيرفر بنجاح (Response):", data);
 
-      // 🌟 التعديل هنا: التوجيه لصفحة تأكيد البريد وتمرير الإيميل المكتوب بشكل آمن ومحمي
       router.push(
         `/verify-email?email=${encodeURIComponent(formData.organizationEmail)}`,
       );

@@ -49,10 +49,5 @@ jobs:
           echo "Deployed to: $url"
           echo "deployment_url=$url" >> "$GITHUB_OUTPUT"
 
-      # اختياري: لو بدك دومين ثابت بدل اللينك العشوائي كل مرة (مثلاً staging.yourdomain.com)
-      # لازم يكون الدومين مضاف ومربوط بالمشروع على Vercel مسبقاً
-      # - name: Assign staging alias
-      #   run: vercel alias set ${{ steps.deploy.outputs.deployment_url }} staging.yourdomain.com --token=${{ secrets.VERCEL_TOKEN }}
-
       - name: Print deployment URL
         run: echo "✅ Staging deployed at ${{ steps.deploy.outputs.deployment_url }}"

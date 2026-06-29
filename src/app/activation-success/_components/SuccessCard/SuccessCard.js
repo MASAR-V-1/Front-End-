@@ -20,7 +20,7 @@ export default function SuccessCard({ organizationName }) {
       {/* شارة النجاح الخضراء العلوية */}
       <div className={styles.successBadgeWrapper}>
         <div className={styles.successBadge}>
-          <CheckCircle2 size={32} strokeWidth={2.5} color="#B0F0D6" />
+          <CheckCircle2 size={32} strokeWidth={2.5} color="#0b9c76" />
         </div>
       </div>
 

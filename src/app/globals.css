@@ -10,7 +10,7 @@ body {
   color: #333333;
 }
 body {
-  font-family: var(--font-cairo), sans-serif !important;
+  font-family: var(--font-cairo), sans-serif;
 }
 html {
   scroll-behavior: smooth;

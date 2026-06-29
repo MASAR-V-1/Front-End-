@@ -10,11 +10,10 @@ export default function Template({ children }) {
 
   return (
     <motion.div
-      // 🌟 فحص المسار لتحديد الحركة الابتدائية لكل صفحة
       initial={
         isRegisterPage
-          ? { x: "100%", y: 0, opacity: 0.8 } // صفحة التسجيل: تأتي بسلايدر من اليمين
-          : { x: 0, y: 15, opacity: 0 } // صفحة اللاندينق: ظهور ناعم متدرج ويرتفع قليلاً
+          ? { x: "100%", y: 0, opacity: 0.8 }
+          : { x: 0, y: 15, opacity: 0 }
       }
       // الحالة النهائية الثابتة والمشتركة لكل الصفحات
       animate={{ x: 0, y: 0, opacity: 1 }}
