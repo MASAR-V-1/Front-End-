@@ -138,10 +138,12 @@
   gap: 8px;
   margin-top: 10px;
   transition: background-color 0.2s ease;
+  font-family: Cairo;
 }
 
 .submitBtn:hover {
   background-color: #043629;
+  font-family: Cairo;
 }
 
 /* التذييل والتنبيه اللافندر */

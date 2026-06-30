@@ -1,6 +1,6 @@
 .headerWrapper {
   /* تدرج لوني أزرق غني يحاكي انسيابية التصميم */
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #044e3a 0%, #0369a1 50%, #1d4ed8 100%);
   padding: 60px 20px 160px 20px; /* مسافة سفلية واسعة ليغوص الكرت الأبيض بداخلها لاحقاً */
   text-align: center;
   color: #ffffff;
@@ -16,6 +16,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  filter: brightness(0) invert(1);
 }
 
 .logoIcon {
@@ -32,11 +33,13 @@
 
 /* العنوان العريض السفلي */
 .mainTitle {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   color: #ffffff;
   margin: 0;
   letter-spacing: -0.5px;
+  position: relative;
+  top: -50px;
 }
 
 /* لمسة تجاوب اختيارية للشاشات الصغيرة */
