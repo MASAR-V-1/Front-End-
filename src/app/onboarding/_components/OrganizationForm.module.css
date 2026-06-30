@@ -1,0 +1,193 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.errorAlert {
+  padding: 12px 16px;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.sectionTitle {
+  font-size: 1.05rem;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-right: 4px solid #0056b3;
+  padding-right: 10px;
+  font-weight: 700;
+}
+
+.optional {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: normal;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.required {
+  color: #dc2626;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #f8fafc;
+  color: #334155;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #0056b3;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.subLabel {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  padding: 6px 14px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.activeTag {
+  background: #064e3b;
+  color: #ffffff;
+  border-color: #064e3b;
+}
+
+.addTag {
+  padding: 6px 14px;
+  background: #eff6ff;
+  border: 1px dashed #bfdbfe;
+  color: #1e40af;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.uploadZone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.uploadZone:hover {
+  border-color: #0056b3;
+  background: #f0f7ff;
+}
+
+.uploadIcon {
+  font-size: 2rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.uploadText {
+  font-size: 0.9rem;
+  color: #334155;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.uploadHint {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btnSubmit {
+  padding: 12px 24px;
+  background-color: #064e3b;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnDraft {
+  padding: 12px 24px;
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btnSubmit:hover {
+  background-color: #022c22;
+}
+.btnDraft:hover {
+  background-color: #f1f5f9;
+}
+
+.btnSubmit:disabled,
+.btnDraft:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
