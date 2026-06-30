@@ -1,0 +1,333 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  direction: rtl;
+}
+
+.contentLayout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  flex: 3;
+}
+
+.sidebarContent {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* الهيدر والعنوان */
+.cardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.pageTitle {
+  font-size: 1.4rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 700;
+}
+
+.pageSubtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0 0 24px 0;
+}
+
+.statusBadge {
+  background-color: #fef3c7;
+  color: #d97706;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #fde68a;
+}
+
+/* الكارد الرئيسي الأبيض */
+.mainCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.successIconContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  background-color: #d1fae5;
+  color: #059669;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.successTitle {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.successDesc {
+  font-size: 0.95rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  line-height: 1.6;
+}
+
+.timelineTitle {
+  font-size: 1.05rem;
+  color: #1e293b;
+  text-align: right;
+  margin: 0 0 12px 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin-bottom: 24px;
+}
+
+/* شبكة الكاردات الأربعة */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.gridCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 18px;
+  text-align: right;
+}
+
+.gridCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.gridCardHeader h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 700;
+}
+
+.gridCard p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* كارد المرحلة المكتملة */
+.stepDone {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+}
+.stepDone .checkMark {
+  color: #166534;
+  font-weight: bold;
+}
+
+/* كارد المرحلة النشطة حالياً */
+.stepActive {
+  background-color: #ffffff;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 1px #f59e0b;
+}
+.stepActive h4 {
+  color: #d97706;
+}
+
+.btnLogout {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+  font-family: Cairo;
+}
+
+.btnLogout:hover {
+  text-decoration: underline;
+}
+
+/* السايدبار الجانبي */
+.sidebarCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.sidebarCardTitle {
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+
+.verticalSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vStep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.vStep:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 13px;
+  top: 28px;
+  width: 2px;
+  height: calc(100% - 4px);
+  background-color: #e2e8f0;
+}
+
+.vStepCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.vStepLabel {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.vStepDone .vStepCircle {
+  background-color: #064e3b;
+  color: #ffffff;
+}
+.vStepDone .vStepLabel {
+  color: #064e3b;
+  font-weight: 600;
+}
+
+.vStepActive .vStepCircle {
+  background-color: #f59e0b;
+  color: #ffffff;
+}
+.vStepTextGroup {
+  display: flex;
+  flex-direction: column;
+}
+.vStepActive .vStepLabel {
+  color: #d97706;
+  font-weight: 700;
+}
+.vStepSubLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* الملاحظة الهامة والدعم */
+.noteCard {
+  background-color: #f0f7ff;
+  border: 1px solid #bee3f8;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.noteHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #0056b3;
+}
+
+.noteHeader h4 {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.noteCard p {
+  font-size: 0.8rem;
+  color: #334155;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.supportCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.supportCard h4 {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #475569;
+}
+.supportLink {
+  font-size: 0.85rem;
+  color: #0056b3;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .contentLayout {
+    flex-direction: column;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}
