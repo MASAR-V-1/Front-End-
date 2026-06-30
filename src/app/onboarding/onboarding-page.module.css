@@ -3,10 +3,6 @@
   min-height: 100vh;
   background-color: #f8fafc;
   direction: rtl; /* لضمان التوافق مع اللغة العربية */
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
 }
 
 .contentLayout {
