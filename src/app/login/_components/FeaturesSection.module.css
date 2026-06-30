@@ -1,0 +1,113 @@
+.featuresWrapper {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: right;
+  border-radius: 0 16px 16px 0; /* انحناء من الجهة اليمين لتتطابق مع الكارد الرئيسي */
+}
+
+.brandTag {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.featuresTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #064e3b; /* اللون الأخضر الزيتي الداكن الخاص بهوية المنصة */
+  margin: 0 0 12px 0;
+}
+
+.featuresDescription {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 0 40px 0;
+}
+
+/* حاوية القائمة */
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 340px;
+}
+
+/* السطر الذي يجمع البادج والأيقونة */
+.featureRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+/* البادج العريض الخلفية اللافندر الباهتة */
+.featureCard {
+  flex: 1;
+  background-color: #eef2ff; /* لافندر ناعم جداً */
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* مربعات الأيقونات الجانبية الملونة بدقة */
+.iconBox {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconGreen {
+  background-color: #064e3b;
+  color: #ffffff;
+}
+
+.iconBlue {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.iconGray {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+}
+
+.iconShield {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+}
+
+/* للتجاوب مع الشاشات الصغيرة لتتحول لعمود واحد لاحقاً */
+@media (max-width: 768px) {
+  .featuresWrapper {
+    border-radius: 16px 16px 0 0;
+    align-items: center;
+    text-align: center;
+  }
+  .featuresDescription {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .featureRow {
+    flex-direction: row-reverse;
+  }
+}
