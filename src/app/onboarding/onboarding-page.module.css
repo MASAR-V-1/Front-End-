@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  direction: rtl; /* لضمان التوافق مع اللغة العربية */
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.contentLayout {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  gap: 24px;
+}
+
+.mainContent {
+  flex: 3; /* يأخذ المساحة الأكبر للاستمارة */
+}
+
+.sidebarContent {
+  flex: 1; /* المساحة الأقل للكارد الجانبي */
+  min-width: 320px;
+}
+
+@media (max-width: 1024px) {
+  .contentLayout {
+    flex-direction: column-reverse; /* ينزل السايدبار أسفل الشاشة في الشاشات الصغيرة */
+  }
+  .sidebarContent {
+    width: 100%;
+  }
+}
