@@ -21,7 +21,7 @@ export default function SuccessCard({ organizationName }) {
       <div className={styles.successBadgeWrapper}>
         <div className={styles.successBadge}>
           <CheckCircle2 size={32} strokeWidth={2.5} color="#0b9c76" />
-        </div>
+        </div>  
       </div>
 
       {/* العناوين الرئيسية للنجاح */}
