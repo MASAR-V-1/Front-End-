@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/register-organization",
+      "destination": "https://masar-taqat.up.railway.app/register-organization"
+    },
+    {
+      "source": "/email/:path*",
+      "destination": "https://masar-taqat.up.railway.app/email/:path*"
+    }
+  ]
+}
