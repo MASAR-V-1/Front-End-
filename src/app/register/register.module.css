@@ -438,12 +438,14 @@
 }
 
 /* لون الحدود والخلفية للحقل في حالة الخطأ */
-.inputError {
+.inputError input,
+.inputError select {
   border-color: #ef4444 !important;
   background-color: #fef2f2 !important;
 }
 
-.inputError:focus {
+.inputError input:focus,
+.inputError select:focus {
   box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1) !important;
 }
 
@@ -492,16 +494,25 @@
 }
 
 .backToVerifyLink {
-  margin-right: 15px;
-  color: #026960;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: underline;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #475569;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
+
 .backToVerifyLink:hover {
-  color: #014d47;
+  background-color: #f8fafc;
+  color: #1e293b;
+  border-color: #94a3b8;
 }
 
 /* ==========================================

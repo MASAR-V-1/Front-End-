@@ -14,6 +14,7 @@ import {
   Eye,
   EyeOff,
   ArrowLeft,
+  ArrowRight,
   AlertTriangle,
   X,
   Loader2,
@@ -53,6 +54,16 @@ const FREE_EMAIL_DOMAINS = [
   "hotmail.co.uk",
 ];
 
+const FieldError = ({ fieldErrors, fieldName }) => {
+  if (!fieldErrors[fieldName]) return null;
+  return (
+    <div className={styles.fieldError}>
+      <AlertTriangle size={13} />
+      <span>{fieldErrors[fieldName]}</span>
+    </div>
+  );
+};
+
 export default function RegisterForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -81,6 +92,7 @@ export default function RegisterForm() {
     const savedData = sessionStorage.getItem("registerFormData");
     if (savedData) {
       try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData(JSON.parse(savedData));
       } catch (e) {
         console.error("Error loading saved data", e);
@@ -176,8 +188,8 @@ export default function RegisterForm() {
       organization_name: formData.organizationName,
       organization_email: formData.organizationEmail,
       admin_email: formData.personalEmail,
-      organization_region: formData.region,
-      organization_phone: formData.phone,
+      region: formData.region,
+      phone: formData.phone,
       admin_password: formData.password,
       admin_password_confirmation: formData.confirmPassword,
       organization_type: formData.organizationType,
@@ -287,16 +299,6 @@ export default function RegisterForm() {
     return keywordMap[backendKey] || [backendKey];
   };
 
-  const FieldError = ({ fieldName }) => {
-    if (!fieldErrors[fieldName]) return null;
-    return (
-      <div className={styles.fieldError}>
-        <AlertTriangle size={13} />
-        <span>{fieldErrors[fieldName]}</span>
-      </div>
-    );
-  };
-
   return (
     <section className={styles.formSection}>
       <form className={styles.workspaceForm} onSubmit={handleSubmit}>
@@ -337,7 +339,10 @@ export default function RegisterForm() {
               />
               <Building2 className={styles.fieldIcon} size={18} />
             </div>
-            <FieldError fieldName="organizationName" />
+            <FieldError
+              fieldErrors={fieldErrors}
+              fieldName="organizationName"
+            />
           </div>
           <div className={styles.inputGroup}>
             <label>البريد الإلكتروني للمؤسسة</label>
@@ -353,7 +358,10 @@ export default function RegisterForm() {
               />
               <Mail className={styles.fieldIcon} size={18} />
             </div>
-            <FieldError fieldName="organizationEmail" />
+            <FieldError
+              fieldErrors={fieldErrors}
+              fieldName="organizationEmail"
+            />
           </div>
         </div>
 
@@ -377,7 +385,7 @@ export default function RegisterForm() {
               </select>
               <MapPin className={styles.fieldIcon} size={18} />
             </div>
-            <FieldError fieldName="region" />
+            <FieldError fieldErrors={fieldErrors} fieldName="region" />
           </div>
           <div className={styles.inputGroup}>
             <label>رقم الجوال</label>
@@ -394,7 +402,7 @@ export default function RegisterForm() {
               />
               <Phone className={styles.fieldIcon} size={18} />
             </div>
-            <FieldError fieldName="phone" />
+            <FieldError fieldErrors={fieldErrors} fieldName="phone" />
           </div>
         </div>
 
@@ -420,7 +428,7 @@ export default function RegisterForm() {
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            <FieldError fieldName="password" />
+            <FieldError fieldErrors={fieldErrors} fieldName="password" />
           </div>
           <div className={styles.inputGroup}>
             <label>تأكيد كلمة المرور</label>
@@ -443,7 +451,7 @@ export default function RegisterForm() {
                 {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            <FieldError fieldName="confirmPassword" />
+            <FieldError fieldErrors={fieldErrors} fieldName="confirmPassword" />
           </div>
         </div>
 
@@ -462,7 +470,7 @@ export default function RegisterForm() {
               />
               <Mail className={styles.fieldIcon} size={18} />
             </div>
-            <FieldError fieldName="personalEmail" />
+            <FieldError fieldErrors={fieldErrors} fieldName="personalEmail" />
           </div>
           <div className={styles.inputGroup}>
             <label>نوع المنظمة</label>
@@ -483,7 +491,10 @@ export default function RegisterForm() {
               </select>
               <MapPin className={styles.fieldIcon} size={18} />
             </div>
-            <FieldError fieldName="organizationType" />
+            <FieldError
+              fieldErrors={fieldErrors}
+              fieldName="organizationType"
+            />
           </div>
         </div>
 
@@ -524,7 +535,7 @@ export default function RegisterForm() {
             <Link href="/privacy">سياسة الخصوصية</Link>.
           </label>
         </div>
-        <FieldError fieldName="agreedToTerms" />
+        <FieldError fieldErrors={fieldErrors} fieldName="agreedToTerms" />
 
         <div className={styles.submitContainer}>
           <button
@@ -549,7 +560,8 @@ export default function RegisterForm() {
               )}`}
               className={styles.backToVerifyLink}
             >
-              العودة لصفحة التفعيل
+              <ArrowRight size={18} />
+              <span>العودة لصفحة التفعيل</span>
             </Link>
           )}
         </div>
