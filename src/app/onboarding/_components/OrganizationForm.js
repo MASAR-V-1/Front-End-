@@ -25,10 +25,7 @@ const REQUIRED_FIELDS = {
   country: "الدولة",
   phone: "رقم الهاتف",
   email: "البريد الإلكتروني الرسمي",
-  managerName: "اسم مسؤول التواصل",
-  managerRole: "المسمى الوظيفي",
-  managerEmail: "البريد الإلكتروني لمسؤول التواصل",
-  managerPhone: "رقم جوال مسؤول التواصل",
+  managerName: "اسم المسؤول",
 };
 
 const DRAFT_STORAGE_KEY = "onboardingDraft";
@@ -52,18 +49,15 @@ export default function OrganizationForm({ onProgressUpdate }) {
     orgName: "",
     orgType: "",
     regNumber: "",
-    country: "",
+    country: "PS", // افتراضياً وثابت على فلسطين
     phone: "",
     email: "",
     address: "",
+    managerName: "",
     sectors: [],
     size: "",
     volunteers: "",
     experience: "",
-    managerName: "",
-    managerRole: "",
-    managerEmail: "",
-    managerPhone: "",
     notes: "",
   });
 
@@ -109,10 +103,6 @@ export default function OrganizationForm({ onProgressUpdate }) {
           // تحويل قيمة نوع المنظمة من التسجيل للقيمة المتوافقة
           const typeMap = { ngo: "NGO", company: "Company", gov: "Gov" };
           initialData.orgType = typeMap[parsed.organizationType] || parsed.organizationType;
-        }
-        // تعبئة بيانات مسؤول التواصل من بيانات المسؤول
-        if (!initialData.managerEmail && parsed.personalEmail) {
-          initialData.managerEmail = parsed.personalEmail;
         }
       }
     } catch (e) {
@@ -172,8 +162,10 @@ export default function OrganizationForm({ onProgressUpdate }) {
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.email = "يرجى إدخال بريد إلكتروني صالح";
     }
-    if (formData.managerEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.managerEmail)) {
-      errors.managerEmail = "يرجى إدخال بريد إلكتروني صالح";
+
+    // تحقق من صيغة رقم الهاتف
+    if (formData.phone && !/^\+970 5[0-9] [0-9]{3} [0-9]{4}$/.test(formData.phone)) {
+      errors.phone = "رقم الهاتف يجب أن يكون بصيغة +970 5X XXX XXXX";
     }
 
     return errors;
@@ -265,14 +257,11 @@ export default function OrganizationForm({ onProgressUpdate }) {
         phone: formData.phone,
         email: formData.email,
         address: formData.address,
+        contact_person_name: formData.managerName,
         sectors: formData.sectors,
         organization_size: formData.size,
         volunteers_count: formData.volunteers,
         years_of_experience: formData.experience,
-        contact_person_name: formData.managerName,
-        contact_person_role: formData.managerRole,
-        contact_person_email: formData.managerEmail,
-        contact_person_phone: formData.managerPhone,
         notes: formData.notes,
       };
 
@@ -343,8 +332,10 @@ export default function OrganizationForm({ onProgressUpdate }) {
               name="orgName"
               value={formData.orgName}
               onChange={handleChange}
-              placeholder="مثال: مؤسسة الأمل للتنمية"
+              placeholder="يتم جلبه من التسجيل"
               className={fieldErrors.orgName ? styles.inputError : ""}
+              disabled
+              style={{ backgroundColor: "#f1f5f9", cursor: "not-allowed", color: "#64748b" }}
             />
             <FieldError fieldErrors={fieldErrors} fieldName="orgName" />
           </div>
@@ -357,6 +348,8 @@ export default function OrganizationForm({ onProgressUpdate }) {
               value={formData.orgType}
               onChange={handleChange}
               className={fieldErrors.orgType ? styles.inputError : ""}
+              disabled
+              style={{ backgroundColor: "#f1f5f9", cursor: "not-allowed", color: "#64748b" }}
             >
               <option value="" disabled>اختر نوع المنظمة</option>
               <option value="NGO">مؤسسة غير ربحية (NGO)</option>
@@ -390,31 +383,11 @@ export default function OrganizationForm({ onProgressUpdate }) {
             <select
               name="country"
               value={formData.country}
-              onChange={handleChange}
-              className={fieldErrors.country ? styles.inputError : ""}
+              disabled
+              style={{ backgroundColor: "#f1f5f9", cursor: "not-allowed", color: "#64748b" }}
             >
-              <option value="" disabled>اختر الدولة</option>
               <option value="PS">فلسطين</option>
-              <option value="SA">المملكة العربية السعودية</option>
-              <option value="JO">الأردن</option>
-              <option value="EG">مصر</option>
-              <option value="LB">لبنان</option>
-              <option value="IQ">العراق</option>
-              <option value="SY">سوريا</option>
-              <option value="YE">اليمن</option>
-              <option value="AE">الإمارات</option>
-              <option value="QA">قطر</option>
-              <option value="KW">الكويت</option>
-              <option value="OM">عمان</option>
-              <option value="BH">البحرين</option>
-              <option value="SD">السودان</option>
-              <option value="LY">ليبيا</option>
-              <option value="TN">تونس</option>
-              <option value="DZ">الجزائر</option>
-              <option value="MA">المغرب</option>
-              <option value="TR">تركيا</option>
             </select>
-            <FieldError fieldErrors={fieldErrors} fieldName="country" />
           </div>
         </div>
 
@@ -451,15 +424,31 @@ export default function OrganizationForm({ onProgressUpdate }) {
           </div>
         </div>
 
-        <div className={styles.field}>
-          <label>العنوان الرئيسي</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            placeholder="مثال: غزة، حي الرمال، شارع الوحدة"
-          />
+        <div className={styles.row}>
+          <div className={styles.field}>
+            <label>العنوان الرئيسي</label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              placeholder="مثال: غزة، حي الرمال، شارع الوحدة"
+            />
+          </div>
+          <div className={styles.field}>
+            <label>
+              اسم المسؤول <span className={styles.required}>*</span>
+            </label>
+            <input
+              type="text"
+              name="managerName"
+              value={formData.managerName}
+              onChange={handleChange}
+              placeholder="اسم المسؤول"
+              className={fieldErrors.managerName ? styles.inputError : ""}
+            />
+            <FieldError fieldErrors={fieldErrors} fieldName="managerName" />
+          </div>
         </div>
       </section>
 
@@ -530,73 +519,9 @@ export default function OrganizationForm({ onProgressUpdate }) {
         </div>
       </section>
 
-      {/* 3. مسؤول التواصل الرئيسي */}
-      <section className={styles.section}>
-        <h3 className={styles.sectionTitle}>مسؤول التواصل الرئيسي</h3>
-        <div className={styles.row}>
-          <div className={styles.field}>
-            <label>
-              الاسم الكامل <span className={styles.required}>*</span>
-            </label>
-            <input
-              type="text"
-              name="managerName"
-              value={formData.managerName}
-              onChange={handleChange}
-              placeholder="اسم المسؤول"
-              className={fieldErrors.managerName ? styles.inputError : ""}
-            />
-            <FieldError fieldErrors={fieldErrors} fieldName="managerName" />
-          </div>
-          <div className={styles.field}>
-            <label>
-              المسمى الوظيفي <span className={styles.required}>*</span>
-            </label>
-            <input
-              type="text"
-              name="managerRole"
-              value={formData.managerRole}
-              onChange={handleChange}
-              placeholder="مثال: مدير العمليات"
-              className={fieldErrors.managerRole ? styles.inputError : ""}
-            />
-            <FieldError fieldErrors={fieldErrors} fieldName="managerRole" />
-          </div>
-        </div>
-        <div className={styles.row}>
-          <div className={styles.field}>
-            <label>
-              البريد الإلكتروني <span className={styles.required}>*</span>
-            </label>
-            <input
-              type="email"
-              name="managerEmail"
-              value={formData.managerEmail}
-              onChange={handleChange}
-              placeholder="contact@org.com"
-              className={fieldErrors.managerEmail ? styles.inputError : ""}
-            />
-            <FieldError fieldErrors={fieldErrors} fieldName="managerEmail" />
-          </div>
-          <div className={styles.field}>
-            <label>
-              رقم الجوال <span className={styles.required}>*</span>
-            </label>
-            <input
-              type="text"
-              name="managerPhone"
-              value={formData.managerPhone}
-              onChange={handleChange}
-              placeholder="+970 5X XXX XXXX"
-              style={{ direction: "ltr", textAlign: "right" }}
-              className={fieldErrors.managerPhone ? styles.inputError : ""}
-            />
-            <FieldError fieldErrors={fieldErrors} fieldName="managerPhone" />
-          </div>
-        </div>
-      </section>
 
-      {/* 4. معلومات التحقق والوثائق */}
+
+      {/* 3. معلومات التحقق والوثائق */}
       <section className={styles.section}>
         <h3 className={styles.sectionTitle}>
           معلومات التحقق والوثائق{" "}

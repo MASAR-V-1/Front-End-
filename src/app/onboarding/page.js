@@ -7,7 +7,6 @@ import ProgressSidebar from "./_components/ProgressSidebar";
 import OrganizationForm from "./_components/OrganizationForm";
 import styles from "./onboarding-page.module.css";
 
-// الحقول المطلوبة لحساب نسبة الإكمال
 const REQUIRED_FIELDS = [
   "orgName",
   "orgType",
@@ -16,9 +15,6 @@ const REQUIRED_FIELDS = [
   "phone",
   "email",
   "managerName",
-  "managerRole",
-  "managerEmail",
-  "managerPhone",
 ];
 
 export default function OnboardingPage() {

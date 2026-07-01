@@ -146,6 +146,12 @@ export default function RegisterForm() {
       localErrors.organizationName = "اسم المؤسسة مطلوب";
     }
 
+    if (!formData.phone.trim()) {
+      localErrors.phone = "رقم الجوال مطلوب";
+    } else if (!/^\+970 5[0-9] [0-9]{3} [0-9]{4}$/.test(formData.phone)) {
+      localErrors.phone = "رقم الجوال يجب أن يكون بصيغة +970 5X XXX XXXX";
+    }
+
     if (!formData.organizationEmail.trim()) {
       localErrors.organizationEmail = "البريد الإلكتروني للمؤسسة مطلوب";
     } else {
