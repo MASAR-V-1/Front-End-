@@ -7,7 +7,7 @@ export async function submitOnboardingData(formData) {
   }
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/organization/onboarding`,
+    `${process.env.NEXT_PUBLIC_API_URL}/organization/o`,
     {
       method: "POST",
       headers: {
