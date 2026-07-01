@@ -214,7 +214,9 @@
 /* زر الحفظ */
 .submitContainer {
   display: flex;
-  justify-content: flex-start; /* ليكون الزر على اليمين بالتوافق مع التصميم العربي */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
 }
 
 .submitBtn {
@@ -362,6 +364,144 @@
 .reqItem.valid {
   color: #16a34a; /* اللون الأخضر */
   font-weight: 600;
+}
+
+/* ==========================================
+   رسائل الخطأ والأنيميشن (Error Handling & Animation)
+   ========================================== */
+
+/* بانر الخطأ العام في أعلى الفورم */
+.errorBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.errorBannerContent {
+  display: flex;
+  gap: 12px;
+}
+
+.errorBannerIcon {
+  color: #dc2626;
+  margin-top: 2px;
+}
+
+.errorBannerTitle {
+  font-weight: 700;
+  color: #991b1b;
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+}
+
+.errorBannerMessage {
+  color: #b91c1c;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.errorBannerClose {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.errorBannerClose:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* رسالة الخطأ أسفل كل حقل */
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 6px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* لون الحدود والخلفية للحقل في حالة الخطأ */
+.inputError {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1) !important;
+}
+
+/* خطأ الموافقة على الشروط */
+.termsError {
+  color: #dc2626;
+  font-weight: 600;
+}
+.termsError a {
+  color: #dc2626;
+  text-decoration: underline;
+}
+
+/* أنيميشن الـ Spinner أثناء التحميل */
+.spinnerIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.backToVerifyLink {
+  margin-right: 15px;
+  color: #026960;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+}
+.backToVerifyLink:hover {
+  color: #014d47;
 }
 
 /* ==========================================

@@ -4,14 +4,66 @@
   gap: 24px;
 }
 
+/* رسالة الخطأ العامة */
 .errorAlert {
-  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
   background-color: #fef2f2;
   border: 1px solid #fca5a5;
   color: #b91c1c;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
+  animation: slideDown 0.3s ease;
+}
+
+.errorAlertContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.errorAlertClose {
+  background: none;
+  border: none;
+  color: #b91c1c;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.errorAlertClose:hover {
+  background-color: rgba(185, 28, 28, 0.1);
+}
+
+/* رسالة النجاح */
+.successAlert {
+  padding: 14px 16px;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #166534;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section {
@@ -71,6 +123,7 @@
   background-color: #f8fafc;
   color: #334155;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
 .field input:focus,
@@ -79,6 +132,43 @@
   border-color: #0056b3;
   background-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+/* حالة الخطأ للحقول */
+.field input.inputError,
+.field select.inputError,
+.field textarea.inputError {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.field input.inputError:focus,
+.field select.inputError:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+/* رسائل الخطأ لكل حقل */
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #dc2626;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding-top: 2px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
 }
 
 .subLabel {
@@ -101,12 +191,24 @@
   font-size: 0.85rem;
   color: #475569;
   cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.tag:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
 }
 
 .activeTag {
   background: #064e3b;
   color: #ffffff;
   border-color: #064e3b;
+}
+
+.activeTag:hover {
+  background: #043629;
+  border-color: #043629;
 }
 
 .addTag {
@@ -119,6 +221,7 @@
   cursor: pointer;
 }
 
+/* منطقة رفع الملفات */
 .uploadZone {
   border: 2px dashed #cbd5e1;
   border-radius: 8px;
@@ -132,6 +235,18 @@
 .uploadZone:hover {
   border-color: #0056b3;
   background: #f0f7ff;
+}
+
+.uploadZoneDragOver {
+  border-color: #0056b3;
+  background: #eff6ff;
+  box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+}
+
+.uploadIconSvg {
+  color: #94a3b8;
+  margin: 0 auto 8px auto;
+  display: block;
 }
 
 .uploadIcon {
@@ -152,6 +267,61 @@
   color: #64748b;
 }
 
+/* الملفات المرفوعة */
+.uploadedFilesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.uploadedFile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  animation: fadeIn 0.2s ease;
+}
+
+.uploadedFileInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #334155;
+}
+
+.uploadedFileName {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.uploadedFileSize {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.uploadedFileRemove {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.uploadedFileRemove:hover {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+/* أزرار التحكم */
 .formActions {
   display: flex;
   gap: 12px;
@@ -167,6 +337,11 @@
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  font-family: Cairo, sans-serif;
 }
 
 .btnDraft {
@@ -177,12 +352,17 @@
   border-radius: 6px;
   font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.2s;
+  font-family: Cairo, sans-serif;
 }
 
-.btnSubmit:hover {
+.btnSubmit:hover:not(:disabled) {
   background-color: #022c22;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.3);
 }
-.btnDraft:hover {
+
+.btnDraft:hover:not(:disabled) {
   background-color: #f1f5f9;
 }
 
@@ -190,4 +370,32 @@
 .btnDraft:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+}
+
+/* أنيميشن الـ Spinner */
+.spinnerIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+
+  .btnSubmit,
+  .btnDraft {
+    width: 100%;
+    justify-content: center;
+  }
 }

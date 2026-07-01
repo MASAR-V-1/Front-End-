@@ -1,15 +1,18 @@
 import React from "react";
 import Link from "next/link";
-import { Mail, RotateCcw, Info, Lock, ArrowRight } from "lucide-react";
+import { Mail, RotateCcw, Info, Lock, ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
 import styles from "./VerifyCard.module.css"; // استيراد الستايل الخاص بالبطاقة فقط
 
 export default function VerifyCard({
   email,
   timer,
   isLoading,
+  isVerifying,
   onResend,
+  onVerifyClick,
   error,
   message,
+  verifyError,
 }) {
   // دالة لتسهيل الـ UX وفتح موقع البريد تلقائياً عند الضغط
   const handleOpenEmailProvider = () => {
@@ -39,6 +42,14 @@ export default function VerifyCard({
       {error && <div className={styles.errorText}>⚠️ {error}</div>}
       {message && <div className={styles.successText}>✅ {message}</div>}
 
+      {/* رسالة خطأ التحقق من التفعيل - تظهر بالأحمر عند عدم التفعيل */}
+      {verifyError && (
+        <div className={styles.verifyErrorBox}>
+          <AlertTriangle size={18} className={styles.verifyErrorIcon} />
+          <p className={styles.verifyErrorText}>{verifyError}</p>
+        </div>
+      )}
+
       {/* حقل البريد الإلكتروني المقفول (Disabled) */}
       <div className={styles.inputGroup}>
         <label className={styles.inputLabel}>البريد الإلكتروني المسجل</label>
@@ -64,6 +75,16 @@ export default function VerifyCard({
 
       {/* منطقة أزرار التحكم والعمليات */}
       <div className={styles.actionArea}>
+        {/* الزر الجديد: تم التفعيل - للتحقق من حالة التفعيل والانتقال لصفحة النجاح */}
+        <button
+          onClick={onVerifyClick}
+          disabled={isVerifying}
+          className={styles.verifyBtn}
+        >
+          <CheckCircle size={18} />
+          <span>{isVerifying ? "جاري التحقق..." : "تم التفعيل"}</span>
+        </button>
+
         {/* الزر الأساسي: فتح البريد الإلكتروني باللون الكحلي الداكن الفاخر */}
         <button onClick={handleOpenEmailProvider} className={styles.primaryBtn}>
           <Mail size={18} />

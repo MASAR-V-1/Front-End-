@@ -67,6 +67,8 @@
   color: #64748b;
   font-size: 14px;
   cursor: not-allowed;
+  text-align: right;
+  direction: ltr;
 }
 
 .fieldIcon {
@@ -107,9 +109,38 @@
   font-family: Cairo;
 }
 
+/* ستايل زر "تم التفعيل" الجديد */
+.verifyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  background-color: #064e3b; /* أخضر غامق */
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: inherit;
+}
+
+.verifyBtn:hover:not(:disabled) {
+  background-color: #022c22;
+}
+
+.verifyBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* زر العودة الازرق */
 .primaryBtn {
   width: 100%;
-  background-color: #064e3b; /* كحلي/أخضر داكن فاخر كما بالصورة */
+  background-color: #1e293b; /* كحلي داكن */
   color: white;
   padding: 14px;
   border: none;
@@ -126,8 +157,7 @@
 }
 
 .primaryBtn:hover {
-  background-color: #043629;
-  font-family: Cairo;
+  background-color: #0f172a;
 }
 
 .secondaryBtn {
@@ -161,7 +191,7 @@
 
 .timerText {
   font-weight: bold;
-  color: #0f172a;
+  color: #ef4444; /* أحمر للتنبيه بالوقت المتبقي */
   margin-right: auto; /* دفع العداد أقصى اليسار داخل الزر تماماً كالصورة */
 }
 
@@ -192,6 +222,9 @@
   font-weight: bold;
   margin-bottom: 15px;
   text-align: center;
+  background-color: #fef2f2;
+  padding: 10px;
+  border-radius: 6px;
 }
 .successText {
   color: #10b981;
@@ -199,4 +232,45 @@
   font-weight: bold;
   margin-bottom: 15px;
   text-align: center;
+  background-color: #f0fdf4;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* ستايل رسالة خطأ التحقق من التفعيل */
+.verifyErrorBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.verifyErrorIcon {
+  color: #dc2626;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.verifyErrorText {
+  font-size: 0.9rem;
+  color: #991b1b;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

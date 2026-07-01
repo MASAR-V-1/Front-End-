@@ -7,7 +7,7 @@ export async function submitOnboardingData(formData) {
   }
 
   const response = await fetch(
-    "https://api.masar.org/v1/organization/onboarding",
+    `${process.env.NEXT_PUBLIC_API_URL}/organization/onboarding`,
     {
       method: "POST",
       headers: {
@@ -19,10 +19,14 @@ export async function submitOnboardingData(formData) {
     },
   );
 
+  const data = await response.json();
+
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || "حدث خطأ أثناء إرسال البيانات.");
+    // إرجاع الأخطاء التفصيلية من الباك-إند إذا وجدت
+    const error = new Error(data.message || "حدث خطأ أثناء إرسال البيانات.");
+    error.validationErrors = data.errors || null;
+    throw error;
   }
 
-  return await response.json();
+  return data;
 }

@@ -1,6 +1,8 @@
+"use client";
+
 import styles from "./OnboardingHeader.module.css";
 
-export default function OnboardingHeader() {
+export default function OnboardingHeader({ progress = 0 }) {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
@@ -14,12 +16,12 @@ export default function OnboardingHeader() {
         <div className={styles.progressSection}>
           <span className={styles.progressText}>
             الخطوة 1 من 1 - إكمال ملف المنظمة{" "}
-            <strong className={styles.percent}>70%</strong>
+            <strong className={styles.percent}>{progress}%</strong>
           </span>
           <div className={styles.progressBarBg}>
             <div
               className={styles.progressBarFill}
-              style={{ width: "70%" }}
+              style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
