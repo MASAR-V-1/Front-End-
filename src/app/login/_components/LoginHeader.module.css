@@ -1,0 +1,53 @@
+.headerWrapper {
+  /* تدرج لوني أزرق غني يحاكي انسيابية التصميم */
+  background: linear-gradient(135deg, #044e3a 0%, #0369a1 50%, #1d4ed8 100%);
+  padding: 60px 20px 160px 20px; /* مسافة سفلية واسعة ليغوص الكرت الأبيض بداخلها لاحقاً */
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* حاوية الشعار */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  color: #ffffff;
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* العنوان العريض السفلي */
+.mainTitle {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.5px;
+  position: relative;
+  top: -50px;
+}
+
+/* لمسة تجاوب اختيارية للشاشات الصغيرة */
+@media (max-width: 640px) {
+  .mainTitle {
+    font-size: 26px;
+  }
+  .headerWrapper {
+    padding: 45px 15px 130px 15px;
+  }
+}

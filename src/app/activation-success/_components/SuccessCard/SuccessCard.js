@@ -7,8 +7,9 @@ import { useRouter } from "next/navigation"; // ✨ التعديل الصحيح:
 export default function SuccessCard({ organizationName }) {
   const router = useRouter(); // تهيئة الـ router بنجاح من الموجه الجديد
 
-  const handleGoToDashboard = () => {
-    router.push("/dashboard"); // تنقل سريع وسلس بدون إعادة تحميل الصفحة
+  const handleContinue = () => {
+    // التوجيه إلى صفحة إعداد ملف المنظمة
+    router.push("/onboarding");
   };
 
   const handleGoToLogin = () => {
@@ -21,7 +22,7 @@ export default function SuccessCard({ organizationName }) {
       <div className={styles.successBadgeWrapper}>
         <div className={styles.successBadge}>
           <CheckCircle2 size={32} strokeWidth={2.5} color="#0b9c76" />
-        </div>
+        </div>  
       </div>
 
       {/* العناوين الرئيسية للنجاح */}
@@ -49,7 +50,7 @@ export default function SuccessCard({ organizationName }) {
       {/* منطقة الأزرار السفلية أفقياً */}
       <div className={styles.actionButtonsRow}>
         {/* الزر الرئيسي: الانتقال إلى لوحة التحكم */}
-        <button onClick={handleGoToDashboard} className={styles.primaryBtn}>
+        <button onClick={handleContinue} className={styles.primaryBtn}>
           <span>الانتقال إلى انشاء مساحة العمل </span>
           <LayoutDashboard size={18} />
         </button>

@@ -1,0 +1,58 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 24px;
+  border-top: 4px solid #0056b3; /* الخط الأزرق العلوي المميز بالصورة */
+}
+
+.headerInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.titleSection h1 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.titleSection p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.progressSection {
+  min-width: 280px;
+}
+
+.progressText {
+  font-size: 0.85rem;
+  color: #334155;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.percent {
+  color: #0056b3;
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #00a86b; /* اللون الأخضر لشريط التقدم */
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}

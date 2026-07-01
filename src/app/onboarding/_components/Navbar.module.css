@@ -1,0 +1,80 @@
+.navbar {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #044e3a 0%, #0369a1 50%, #1d4ed8 100%);
+}
+
+.navbarInner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* قسم الشعار */
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.platformName {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+/* قسم المستخدم */
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* تتماشى مع طبيعة تصميم الهيدر الجانبي للملف الشخصي */
+}
+
+.userName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #fff;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #e2e8f0;
+  color: #334155;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
