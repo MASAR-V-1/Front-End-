@@ -16,7 +16,7 @@ export default function Navbar() {
       const savedData = sessionStorage.getItem("registerFormData");
       if (savedData) {
         const parsed = JSON.parse(savedData);
-        const name = parsed.organizationName || parsed.personalEmail || "مستخدم";
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setUserData({
           name: name,
           initial: name.charAt(0),

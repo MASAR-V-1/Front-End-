@@ -33,6 +33,17 @@ const REQUIRED_FIELDS = {
 
 const DRAFT_STORAGE_KEY = "onboardingDraft";
 
+// --- مكون رسالة الخطأ لكل حقل ---
+const FieldError = ({ fieldErrors, fieldName }) => {
+  if (!fieldErrors[fieldName]) return null;
+  return (
+    <div className={styles.fieldError}>
+      <AlertTriangle size={13} />
+      <span>{fieldErrors[fieldName]}</span>
+    </div>
+  );
+};
+
 export default function OrganizationForm({ onProgressUpdate }) {
   const router = useRouter();
   const fileInputRef = useRef(null);
@@ -107,7 +118,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
     } catch (e) {
       console.error("Error loading registration data", e);
     }
-
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData(initialData);
     setIsLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -292,17 +303,6 @@ export default function OrganizationForm({ onProgressUpdate }) {
     }
   };
 
-  // --- مكون رسالة الخطأ لكل حقل ---
-  const FieldError = ({ fieldName }) => {
-    if (!fieldErrors[fieldName]) return null;
-    return (
-      <div className={styles.fieldError}>
-        <AlertTriangle size={13} />
-        <span>{fieldErrors[fieldName]}</span>
-      </div>
-    );
-  };
-
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       {/* رسالة الخطأ العامة */}
@@ -346,7 +346,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               placeholder="مثال: مؤسسة الأمل للتنمية"
               className={fieldErrors.orgName ? styles.inputError : ""}
             />
-            <FieldError fieldName="orgName" />
+            <FieldError fieldErrors={fieldErrors} fieldName="orgName" />
           </div>
           <div className={styles.field}>
             <label>
@@ -364,7 +364,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               <option value="Company">شركة خاصة</option>
               <option value="INGO">منظمة دولية (INGO)</option>
             </select>
-            <FieldError fieldName="orgType" />
+            <FieldError fieldErrors={fieldErrors} fieldName="orgType" />
           </div>
         </div>
 
@@ -381,7 +381,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               placeholder="مثال: REG-2024-1234"
               className={fieldErrors.regNumber ? styles.inputError : ""}
             />
-            <FieldError fieldName="regNumber" />
+            <FieldError fieldErrors={fieldErrors} fieldName="regNumber" />
           </div>
           <div className={styles.field}>
             <label>
@@ -414,7 +414,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               <option value="MA">المغرب</option>
               <option value="TR">تركيا</option>
             </select>
-            <FieldError fieldName="country" />
+            <FieldError fieldErrors={fieldErrors} fieldName="country" />
           </div>
         </div>
 
@@ -432,7 +432,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               placeholder="contact@organization.org"
               className={fieldErrors.email ? styles.inputError : ""}
             />
-            <FieldError fieldName="email" />
+            <FieldError fieldErrors={fieldErrors} fieldName="email" />
           </div>
           <div className={styles.field}>
             <label>
@@ -447,7 +447,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               style={{ direction: "ltr", textAlign: "right" }}
               className={fieldErrors.phone ? styles.inputError : ""}
             />
-            <FieldError fieldName="phone" />
+            <FieldError fieldErrors={fieldErrors} fieldName="phone" />
           </div>
         </div>
 
@@ -546,7 +546,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               placeholder="اسم المسؤول"
               className={fieldErrors.managerName ? styles.inputError : ""}
             />
-            <FieldError fieldName="managerName" />
+            <FieldError fieldErrors={fieldErrors} fieldName="managerName" />
           </div>
           <div className={styles.field}>
             <label>
@@ -560,7 +560,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               placeholder="مثال: مدير العمليات"
               className={fieldErrors.managerRole ? styles.inputError : ""}
             />
-            <FieldError fieldName="managerRole" />
+            <FieldError fieldErrors={fieldErrors} fieldName="managerRole" />
           </div>
         </div>
         <div className={styles.row}>
@@ -576,7 +576,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               placeholder="contact@org.com"
               className={fieldErrors.managerEmail ? styles.inputError : ""}
             />
-            <FieldError fieldName="managerEmail" />
+            <FieldError fieldErrors={fieldErrors} fieldName="managerEmail" />
           </div>
           <div className={styles.field}>
             <label>
@@ -591,7 +591,7 @@ export default function OrganizationForm({ onProgressUpdate }) {
               style={{ direction: "ltr", textAlign: "right" }}
               className={fieldErrors.managerPhone ? styles.inputError : ""}
             />
-            <FieldError fieldName="managerPhone" />
+            <FieldError fieldErrors={fieldErrors} fieldName="managerPhone" />
           </div>
         </div>
       </section>
